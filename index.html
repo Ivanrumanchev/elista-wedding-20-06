@@ -205,11 +205,16 @@
       z-index: 100;
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
       padding: 1.2rem 2rem;
       background: rgba(250, 246, 241, 0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(201,169,110,0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
     }
 
     .nav a {
@@ -223,6 +228,61 @@
       transition: color 0.3s;
     }
     .nav a:hover { color: var(--gold); }
+
+    /* ── Гамбургер-меню ────────────────────────────────────────── */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      color: var(--text-light);
+      padding: 0.3rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        gap: 0;
+        position: relative;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(250, 246, 241, 0.97);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(201,169,110,0.2);
+        padding: 0.5rem 1.5rem 0.8rem;
+        gap: 0;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(201,169,110,0.15);
+        font-size: 0.7rem;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+    }
 
     /* ── Обратный отсчёт ──────────────────────────────────────────── */
     .countdown-section {
@@ -588,7 +648,6 @@
 
     /* ── Адаптив ──────────────────────────────────────────────────── */
     @media (max-width: 480px) {
-      .nav { gap: 1.2rem; }
       .schedule-item { grid-template-columns: 2rem 5rem 1fr; gap: 0.5rem; }
       .venue-card { padding: 2rem 1.5rem; }
     }
@@ -602,10 +661,16 @@
 
   <!-- Навигация -->
   <nav class="nav">
-    <a href="#story">История</a>
-    <a href="#schedule">Программа</a>
-    <a href="#venue">Место</a>
-    <a href="#rsvp">Ответ</a>
+    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+      <span class="nav-toggle-icon">☰</span>
+    </button>
+    <div class="nav-links">
+      <a href="#story">История</a>
+      <a href="#gallery">Фото</a>
+      <a href="#schedule">Программа</a>
+      <a href="#venue">Место</a>
+      <a href="#rsvp">Ответ</a>
+    </div>
   </nav>
 
   <!-- Hero -->

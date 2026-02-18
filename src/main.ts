@@ -149,6 +149,30 @@ function initScrollAnimations(): void {
   document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 }
 
+// ─── Мобильная навигация ──────────────────────────────────────────────────────
+
+function initMobileNav(): void {
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const links = document.querySelector<HTMLDivElement>('.nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    const icon = toggle.querySelector('.nav-toggle-icon');
+    if (icon) icon.textContent = isOpen ? '✕' : '☰';
+  });
+
+  links.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      const icon = toggle.querySelector('.nav-toggle-icon');
+      if (icon) icon.textContent = '☰';
+    });
+  });
+}
+
 // ─── Инициализация ────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -170,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (addressEl) addressEl.textContent = WEDDING_CONFIG.venue.address;
 
   // Запускаем модули
+  initMobileNav();
   initCountdown();
   renderSchedule();
   initSmoothScroll();
