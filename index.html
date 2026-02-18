@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свадьба Ивана и Яны — 10 июня 2026</title>
+  <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день нашей жизни" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Сброс и базовые стили ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:       #faf6f1;
+      --ivory:       #f5ede0;
+      --gold:        #c9a96e;
+      --gold-light:  #e8d5b0;
+      --gold-dark:   #a07c40;
+      --brown:       #5c3d2e;
+      --dark:        #2b1d11;
+      --text:        #4a3728;
+      --text-light:  #8a7060;
+      --white:       #ffffff;
+
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-sans:   'Montserrat', sans-serif;
+
+      --section-pad: clamp(4rem, 10vw, 8rem);
+      --radius:      4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Типографика ──────────────────────────────────────────────── */
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 300; }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--brown);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 3rem;
+      display: block;
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1rem auto 2rem;
+    }
+
+    /* ── Декоративные элементы ────────────────────────────────────── */
+    .ornament {
+      display: block;
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      margin: 1rem 0;
+      opacity: 0.6;
+    }
+
+    /* ── Анимации ─────────────────────────────────────────────────── */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Hero секция ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: var(--ivory);
+      overflow: hidden;
+    }
+
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::before { top: -150px; left: -150px; }
+    .hero::after  { bottom: -150px; right: -150px; }
+
+    .hero-floral {
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.06;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .hero-floral--tl { top: 1rem;  left: 1rem; }
+    .hero-floral--br { bottom: 1rem; right: 1rem; transform: rotate(180deg); }
+
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .hero-names {
+      font-family: var(--font-serif);
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-ampersand {
+      font-size: clamp(2rem, 7vw, 5rem);
+      color: var(--gold);
+      display: block;
+      margin: 0.2em 0;
+      font-style: italic;
+    }
+
+    .hero-date {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: var(--text-light);
+      letter-spacing: 0.15em;
+      margin: 2rem 0 1rem;
+    }
+
+    .hero-venue-name {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll::after {
+      content: '↓';
+      font-size: 1rem;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ── Навигация ────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1.2rem 2rem;
+      background: rgba(250, 246, 241, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+    }
+
+    .nav a {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav a:hover { color: var(--gold); }
+
+    /* ── Обратный отсчёт ──────────────────────────────────────────── */
+    .countdown-section {
+      padding: var(--section-pad) 2rem;
+      background: var(--brown);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .countdown-section .section-title { color: var(--gold-light); }
+    .countdown-section .section-subtitle { color: rgba(232,213,176,0.6); }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .countdown-number {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 2ch;
+      text-align: center;
+    }
+
+    .countdown-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(232,213,176,0.7);
+    }
+
+    .countdown-separator {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--gold-dark);
+      line-height: 1;
+      align-self: flex-start;
+      padding-top: 0.1em;
+    }
+
+    /* ── История ──────────────────────────────────────────────────── */
+    .story-section {
+      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      background: var(--cream);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-divider { display: none; }
+    }
+
+    .story-block { text-align: center; }
+
+    .story-year {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--gold);
+      font-weight: 300;
+      display: block;
+      line-height: 1;
+    }
+
+    .story-subtitle {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .story-text {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .story-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding-top: 2rem;
+    }
+
+    .story-divider span {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .story-divider::before, .story-divider::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: var(--gold-light);
+    }
+
+    /* ── Расписание ───────────────────────────────────────────────── */
+    .schedule-section {
+      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      background: var(--ivory);
+    }
+
+    .schedule-list {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 2.5rem 6rem 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--gold-light);
+    }
+    .schedule-item:last-child { border-bottom: none; }
+
+    .schedule-icon { font-size: 1.2rem; text-align: center; }
+
+    .schedule-time {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+
+    .schedule-title {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Место проведения ─────────────────────────────────────────── */
+    .venue-section {
+      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .venue-card {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      background: var(--ivory);
+      border: 1px solid var(--gold-light);
+      padding: 3rem 4rem;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .venue-icon { font-size: 2rem; }
+
+    .venue-name {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--brown);
+      font-weight: 300;
+    }
+
+    .venue-address {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--gold-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* ── RSVP форма ───────────────────────────────────────────────── */
+    .rsvp-section {
+      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      background: var(--ivory);
+      text-align: center;
+    }
+
+    .rsvp-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-style: italic;
+      color: var(--text-light);
+      max-width: 480px;
+      margin: 0 auto 3rem;
+    }
+
+    .rsvp-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: left;
+    }
+
+    .form-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--text);
+      background: var(--cream);
+      border: 1px solid var(--gold-light);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-textarea { resize: vertical; min-height: 100px; }
+
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .radio-label input[type="radio"] {
+      accent-color: var(--gold);
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .btn--submit {
+      margin-top: 0.5rem;
+      padding: 1rem 3rem;
+      font-size: 0.65rem;
+    }
+
+    /* ── Уведомление ──────────────────────────────────────────────── */
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      padding: 1rem 2rem;
+      font-size: 0.875rem;
+      border-radius: var(--radius);
+      z-index: 999;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .notification--success {
+      background: var(--brown);
+      color: var(--gold-light);
+    }
+    .notification--error {
+      background: #8b3a3a;
+      color: #f5d0d0;
+    }
+    .notification--visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ── Футер ────────────────────────────────────────────────────── */
+    .footer {
+      padding: 3rem 2rem;
+      background: var(--dark);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-names {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .footer-date {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.5);
+    }
+
+    .footer-hashtag {
+      font-size: 0.75rem;
+      color: rgba(201,169,110,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Адаптив ──────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .nav { gap: 1.2rem; }
+      .schedule-item { grid-template-columns: 2rem 5rem 1fr; gap: 0.5rem; }
+      .venue-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="#story">История</a>
+    <a href="#schedule">Программа</a>
+    <a href="#venue">Место</a>
+    <a href="#rsvp">Ответ</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-floral hero-floral--tl">🌿</span>
+    <span class="hero-floral hero-floral--br">🌿</span>
+
+    <p class="hero-eyebrow">Приглашение на свадьбу</p>
+
+    <h1 class="hero-names">
+      <span data-groom>Иван</span>
+      <span class="hero-ampersand">&amp;</span>
+      <span data-bride>Яна</span>
+    </h1>
+
+    <div class="gold-line"></div>
+
+    <p class="hero-date">10 июня 2026 года &nbsp;·&nbsp; среда</p>
+    <p class="hero-venue-name" data-venue>Усадьба «Белый сад»</p>
+
+    <div class="hero-scroll">прокрутите вниз</div>
+  </section>
+
+  <!-- Обратный отсчёт -->
+  <section class="countdown-section" id="countdown">
+    <h2 class="section-title animate-on-scroll">До нашего торжества</h2>
+    <span class="section-subtitle animate-on-scroll">осталось совсем немного</span>
+
+    <div class="countdown-grid animate-on-scroll">
+      <div class="countdown-item">
+        <span class="countdown-number" id="countdown-days">00</span>
+        <span class="countdown-label">дней</span>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="countdown-hours">00</span>
+        <span class="countdown-label">часов</span>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="countdown-minutes">00</span>
+        <span class="countdown-label">минут</span>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="countdown-seconds">00</span>
+        <span class="countdown-label">секунд</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- История -->
+  <section class="story-section" id="story">
+    <h2 class="section-title animate-on-scroll">Наша история</h2>
+    <span class="section-subtitle animate-on-scroll">как всё начиналось</span>
+
+    <div class="story-grid">
+      <div class="story-block animate-on-scroll">
+        <span class="story-year">2022</span>
+        <p class="story-subtitle">Первая встреча</p>
+        <p class="story-text">
+          Мы встретились совершенно случайно — и поняли, что случайностей не бывает.
+          Один взгляд изменил всё.
+        </p>
+      </div>
+
+      <div class="story-divider animate-on-scroll">
+        <span>❧</span>
+      </div>
+
+      <div class="story-block animate-on-scroll">
+        <span class="story-year">2025</span>
+        <p class="story-subtitle">Предложение</p>
+        <p class="story-text">
+          Под звёздным небом прозвучало «да» — и мы решили, что наша история
+          заслуживает продолжения навсегда.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Программа -->
+  <section class="schedule-section" id="schedule">
+    <h2 class="section-title animate-on-scroll">Программа вечера</h2>
+    <span class="section-subtitle animate-on-scroll">10 июня 2026</span>
+
+    <div class="schedule-list animate-on-scroll" id="schedule-list">
+      <!-- заполняется через TypeScript -->
+    </div>
+  </section>
+
+  <!-- Место -->
+  <section class="venue-section" id="venue">
+    <h2 class="section-title animate-on-scroll">Место проведения</h2>
+    <span class="section-subtitle animate-on-scroll">где нас найти</span>
+
+    <div class="venue-card animate-on-scroll">
+      <span class="venue-icon">🏡</span>
+      <h3 class="venue-name" data-venue>Усадьба «Белый сад»</h3>
+      <p class="venue-address" id="venue-address">г. Москва, Рублёвское шоссе, 15</p>
+      <div class="gold-line"></div>
+      <a class="btn" id="venue-map-link" href="#" target="_blank" rel="noopener">
+        Открыть на карте
+      </a>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp-section" id="rsvp">
+    <h2 class="section-title animate-on-scroll">Подтвердите участие</h2>
+    <span class="section-subtitle animate-on-scroll">просим ответить до 1 мая 2026</span>
+
+    <p class="rsvp-intro animate-on-scroll">
+      Ваш ответ поможет нам сделать этот вечер незабываемым для каждого гостя.
+    </p>
+
+    <form class="rsvp-form animate-on-scroll" id="rsvp-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="rsvp-name">Ваше имя</label>
+        <input
+          class="form-input"
+          id="rsvp-name"
+          name="name"
+          type="text"
+          placeholder="Иван Петров"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Вы придёте?</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="status" value="attending" checked />
+            С радостью приду!
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="status" value="not_attending" />
+            К сожалению, не смогу
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="rsvp-guests">Количество гостей</label>
+        <select class="form-select" id="rsvp-guests" name="guests">
+          <option value="1">1 человек (только я)</option>
+          <option value="2">2 человека</option>
+          <option value="3">3 человека</option>
+          <option value="4">4 человека</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="rsvp-message">Пожелание молодожёнам (необязательно)</label>
+        <textarea
+          class="form-textarea"
+          id="rsvp-message"
+          name="message"
+          placeholder="Напишите тёплые слова…"
+        ></textarea>
+      </div>
+
+      <button class="btn btn--submit" type="submit">Отправить ответ</button>
+    </form>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <p class="footer-names">
+      <span data-groom>Иван</span> &amp; <span data-bride>Яна</span>
+    </p>
+    <p class="footer-date">10 · 06 · 2026</p>
+    <p class="footer-hashtag" data-hashtag>#ИванИЯна2026</p>
+  </footer>
+
+  <script type="module" src="dist/main.js"></script>
+</body>
+</html>
