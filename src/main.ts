@@ -106,7 +106,8 @@ function renderSaveDateCalendar(): void {
   for (let i = 0; i < firstDow; i++) {
     const empty = document.createElement('div');
     empty.className = 'calendar-day calendar-day--empty';
-    empty.textContent = '·';
+    empty.setAttribute('aria-hidden', 'true');
+    empty.textContent = '';
     fragment.appendChild(empty);
   }
 
