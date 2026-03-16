@@ -915,6 +915,33 @@
 
     @media (max-width: 640px) {
       :root { --section-pad: 3rem; }
+      .nav-links {
+        background: rgba(58,99,96,0.97);
+      }
+      .nav-links a {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+    }
+
+    /* ── Сердечки-разделители ─────────────────────────────────────── */
+    .section-heart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    .section-heart svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .calendar-heart-ripple--1,
+      .calendar-heart-ripple--2 {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -963,6 +990,12 @@
     <div class="sage-line animate-on-scroll"></div>
     <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
     <div class="sage-line animate-on-scroll"></div>
+    <div class="section-heart">
+      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
+              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
+      </svg>
+    </div>
   </section>
 
   <!-- Обратный отсчёт -->
@@ -1021,6 +1054,12 @@
         </p>
       </div>
     </div>
+    <div class="section-heart">
+      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
+              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
+      </svg>
+    </div>
   </section>
 
   <!-- Галерея -->
@@ -1056,6 +1095,12 @@
 
     <div class="schedule-list animate-on-scroll" id="schedule-list">
       <!-- заполняется через TypeScript -->
+    </div>
+    <div class="section-heart">
+      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
+              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
+      </svg>
     </div>
   </section>
 
@@ -1133,6 +1178,12 @@
 
       <button class="btn btn--submit" type="submit">Отправить ответ</button>
     </form>
+    <div class="section-heart">
+      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
+              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
+      </svg>
+    </div>
   </section>
 
   <!-- Футер -->
