@@ -373,30 +373,8 @@
 
     /* ── Расписание ───────────────────────────────────────────────── */
     .schedule-section {
-      padding: calc(var(--section-pad) + 50px) clamp(1.5rem, 8vw, 6rem);
+      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
       background: var(--sage);
-      position: relative;
-    }
-    .schedule-section::before,
-    .schedule-section::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 80px;
-      background: var(--white);
-      pointer-events: none;
-    }
-    .schedule-section::before {
-      top: 0;
-      clip-path: ellipse(55% 50% at 50% 0%);
-    }
-    .schedule-section::after {
-      bottom: 0;
-      clip-path: ellipse(55% 50% at 50% 100%);
-    }
-    .schedule-section > * {
-      position: relative;
-      z-index: 1;
     }
 
     .schedule-list {
@@ -436,29 +414,10 @@
 
     /* ── Место проведения ─────────────────────────────────────────── */
     .venue-section {
-      padding: calc(var(--section-pad) + 50px) clamp(1.5rem, 8vw, 6rem);
+      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
       background: var(--white);
       text-align: center;
-      position: relative;
     }
-    .venue-section::before,
-    .venue-section::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 80px;
-      background: var(--off-white);
-      pointer-events: none;
-    }
-    .venue-section::before {
-      top: 0;
-      clip-path: ellipse(55% 50% at 50% 0%);
-    }
-    .venue-section::after {
-      bottom: 0;
-      clip-path: ellipse(55% 50% at 50% 100%);
-    }
-    .venue-section > * { position: relative; z-index: 1; }
 
     .venue-card {
       display: inline-flex;
@@ -903,29 +862,10 @@
 
     /* ── Dress Code ───────────────────────────────────────────────── */
     .dresscode-section {
-      padding: calc(var(--section-pad) + 50px) 2rem;
+      padding: var(--section-pad) 2rem;
       background: var(--white);
       text-align: center;
-      position: relative;
     }
-    .dresscode-section::before,
-    .dresscode-section::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 80px;
-      background: var(--off-white);
-      pointer-events: none;
-    }
-    .dresscode-section::before {
-      top: 0;
-      clip-path: ellipse(55% 50% at 50% 0%);
-    }
-    .dresscode-section::after {
-      bottom: 0;
-      clip-path: ellipse(55% 50% at 50% 100%);
-    }
-    .dresscode-section > * { position: relative; z-index: 1; }
     .dresscode-title {
       font-family: var(--font-sans);
       font-size: clamp(2rem, 8vw, 4rem);
@@ -955,8 +895,8 @@
   <!-- Hero -->
   <section class="hero">
     <img class="hero-photo" src="photo.jpg" alt="" />
-    <p class="hero-eyebrow">10/06</p>
-    <h1 class="hero-names">
+    <p class="hero-eyebrow animate-on-scroll">10/06</p>
+    <h1 class="hero-names animate-on-scroll">
       <span data-groom>Иван</span>
       <span class="hero-ampersand">&amp;</span>
       <span data-bride>Яна</span>
@@ -966,11 +906,11 @@
 
   <!-- Save the Date -->
   <section class="save-date-section section--sage" id="save-date">
-    <h2 class="save-date-heading">КОГДА?</h2>
-    <span class="save-date-month" id="save-date-month"></span>
-    <div class="sage-line"></div>
-    <div class="calendar-grid" id="calendar-grid"></div>
-    <div class="sage-line"></div>
+    <h2 class="save-date-heading animate-on-scroll">КОГДА?</h2>
+    <span class="save-date-month animate-on-scroll" id="save-date-month"></span>
+    <div class="sage-line animate-on-scroll"></div>
+    <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
+    <div class="sage-line animate-on-scroll"></div>
   </section>
 
   <!-- Фото полоса -->
@@ -1109,11 +1049,11 @@
   <!-- Финальный блок + футер -->
   <section class="finale-section">
     <img class="finale-photo" src="photo.jpg" alt="" />
-    <p class="finale-text">ВСЕХ ЖДЁМ</p>
-    <p class="finale-names">
+    <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
+    <p class="finale-names animate-on-scroll">
       <span data-groom>Иван</span> &amp; <span data-bride>Яна</span>
     </p>
-    <p class="finale-date">10 · 06 · 2026</p>
+    <p class="finale-date animate-on-scroll">10 · 06 · 2026</p>
   </section>
 
   <script type="module" src="dist/main.js"></script>
