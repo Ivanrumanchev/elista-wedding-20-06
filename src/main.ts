@@ -123,13 +123,13 @@ function renderSaveDateCalendar(): void {
       cell.innerHTML = `
         ${d}
         <svg class="calendar-heart" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="${heartPath}" stroke="var(--gold)" stroke-width="3" fill="rgba(201,169,110,0.08)"/>
+          <path d="${heartPath}" stroke="rgba(255,255,255,0.9)" stroke-width="3" fill="rgba(255,255,255,0.12)"/>
         </svg>
         <svg class="calendar-heart-ripple calendar-heart-ripple--1" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="${heartPath}" stroke="var(--gold)" stroke-width="2" fill="none"/>
+          <path d="${heartPath}" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"/>
         </svg>
         <svg class="calendar-heart-ripple calendar-heart-ripple--2" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="${heartPath}" stroke="var(--gold)" stroke-width="2" fill="none"/>
+          <path d="${heartPath}" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
         </svg>
       `;
     } else {
