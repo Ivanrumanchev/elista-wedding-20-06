@@ -21,7 +21,8 @@ export function initGallery(): void {
   function openLightbox(index: number): void {
     state.currentIndex = index;
     const item = state.images[index];
-    const src = item.getAttribute('data-full') ?? (item.querySelector('img')?.src ?? '');
+    const src = item.getAttribute('data-full') || item.querySelector('img')?.src || '';
+    if (!src) return;
     lightboxImg!.src = src;
     lightbox!.classList.add('lightbox--visible');
     document.body.style.overflow = 'hidden';

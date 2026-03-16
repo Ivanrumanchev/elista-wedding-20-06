@@ -95,12 +95,33 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
-      padding: 2rem;
-      background: var(--off-white);
+      padding: calc(100dvh / 6) 2rem 2rem;
+      background: var(--sage-dark);
       overflow: hidden;
     }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Тёмный оверлей */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Арка снизу → sage секция */
 
     .hero-floral {
       position: absolute;
@@ -108,6 +129,7 @@
       opacity: 0.06;
       pointer-events: none;
       line-height: 1;
+      z-index: 3;
     }
     .hero-floral--tl { top: 1rem;  left: 1rem; }
     .hero-floral--br { bottom: 1rem; right: 1rem; transform: rotate(180deg); }
@@ -118,23 +140,27 @@
       font-weight: 500;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: var(--sage-light);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 3;
     }
 
     .hero-names {
       font-family: var(--font-script);
       font-size: clamp(3.5rem, 12vw, 8rem);
       font-weight: 300;
-      color: var(--sage-dark);
+      color: var(--white);
       line-height: 1;
       margin-bottom: 0.25rem;
       letter-spacing: -0.02em;
+      position: relative;
+      z-index: 3;
     }
 
     .hero-ampersand {
       font-size: clamp(2rem, 7vw, 5rem);
-      color: var(--sage-light);
+      color: rgba(255,255,255,0.65);
       display: block;
       margin: 0.2em 0;
       font-style: italic;
@@ -143,9 +169,11 @@
     .hero-date {
       font-family: var(--font-serif);
       font-size: clamp(1rem, 3vw, 1.4rem);
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.75);
       letter-spacing: 0.15em;
       margin: 2rem 0 1rem;
+      position: relative;
+      z-index: 3;
     }
 
     .hero-venue-name {
@@ -153,21 +181,15 @@
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: rgba(255,255,255,0.9);
+      position: relative;
+      z-index: 3;
     }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      animation: bounce 2s infinite;
+    .hero .sage-line {
+      position: relative;
+      z-index: 3;
+      background: rgba(255,255,255,0.4);
     }
     .hero-scroll::after {
       content: '↓';
@@ -180,102 +202,15 @@
     }
 
     /* ── Навигация ────────────────────────────────────────────────── */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      padding: 1.2rem 2rem;
-      background: rgba(74,122,120,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .nav a {
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .nav a:hover { color: var(--white); }
-
-    /* ── Гамбургер-меню ────────────────────────────────────────── */
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.8);
-      padding: 0.3rem;
-      line-height: 1;
-    }
-
-    @media (max-width: 640px) {
-      .nav {
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0.8rem 1.5rem;
-        gap: 0;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(58,99,96,0.97);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding: 0.5rem 1.5rem 0.8rem;
-        gap: 0;
-      }
-
-      .nav-links.is-open {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 0.7rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        font-size: 0.7rem;
-      }
-
-      .nav-links a:last-child {
-        border-bottom: none;
-      }
-    }
 
     /* ── Обратный отсчёт ──────────────────────────────────────────── */
     .countdown-section {
       padding: var(--section-pad) 2rem;
-      background: var(--off-white);
-      color: var(--text);
+      position: relative;
+      overflow: hidden;
       text-align: center;
+      margin: 0 16.666%;
     }
-
-    .countdown-section .section-title { color: var(--sage); }
-    .countdown-section .section-subtitle { color: var(--text-muted); }
 
     .countdown-grid {
       display: flex;
@@ -316,85 +251,6 @@
 
     .countdown-separator { display: none; }
 
-    /* ── История ──────────────────────────────────────────────────── */
-    .story-section {
-      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem) calc(var(--section-pad) + 60px);
-      background: var(--sage);
-      position: relative;
-    }
-    .story-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: -5%;
-      width: 110%;
-      height: 80px;
-      background: var(--white);
-      border-radius: 50% 50% 0 0;
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-      align-items: start;
-    }
-
-    @media (max-width: 640px) {
-      .story-grid { grid-template-columns: 1fr; }
-      .story-divider { display: none; }
-    }
-
-    .story-block { text-align: center; }
-
-    .story-year {
-      font-family: var(--font-serif);
-      font-size: 3rem;
-      color: rgba(255,255,255,0.5);
-      font-weight: 300;
-      display: block;
-      line-height: 1;
-    }
-
-    .story-subtitle {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin: 0.5rem 0 1rem;
-    }
-
-    .story-text {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.9);
-      font-style: italic;
-      line-height: 2;
-    }
-
-    .story-divider {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding-top: 2rem;
-    }
-
-    .story-divider span {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: rgba(255,255,255,0.4);
-      font-style: italic;
-    }
-
-    .story-divider::before, .story-divider::after {
-      content: '';
-      width: 1px;
-      height: 40px;
-      background: rgba(255,255,255,0.2);
-    }
 
     /* ── Галерея ──────────────────────────────────────────────────── */
     .gallery-section {
@@ -517,18 +373,30 @@
 
     /* ── Расписание ───────────────────────────────────────────────── */
     .schedule-section {
-      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem) calc(var(--section-pad) + 60px);
+      padding: calc(var(--section-pad) + 50px) clamp(1.5rem, 8vw, 6rem);
       background: var(--sage);
       position: relative;
     }
+    .schedule-section::before,
     .schedule-section::after {
       content: '';
       position: absolute;
-      bottom: 0; left: -5%;
-      width: 110%;
+      left: 0; right: 0;
       height: 80px;
       background: var(--white);
-      border-radius: 50% 50% 0 0;
+      pointer-events: none;
+    }
+    .schedule-section::before {
+      top: 0;
+      clip-path: ellipse(55% 50% at 50% 0%);
+    }
+    .schedule-section::after {
+      bottom: 0;
+      clip-path: ellipse(55% 50% at 50% 100%);
+    }
+    .schedule-section > * {
+      position: relative;
+      z-index: 1;
     }
 
     .schedule-list {
@@ -568,10 +436,29 @@
 
     /* ── Место проведения ─────────────────────────────────────────── */
     .venue-section {
-      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      padding: calc(var(--section-pad) + 50px) clamp(1.5rem, 8vw, 6rem);
       background: var(--white);
       text-align: center;
+      position: relative;
     }
+    .venue-section::before,
+    .venue-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 80px;
+      background: var(--off-white);
+      pointer-events: none;
+    }
+    .venue-section::before {
+      top: 0;
+      clip-path: ellipse(55% 50% at 50% 0%);
+    }
+    .venue-section::after {
+      bottom: 0;
+      clip-path: ellipse(55% 50% at 50% 100%);
+    }
+    .venue-section > * { position: relative; z-index: 1; }
 
     .venue-card {
       display: inline-flex;
@@ -637,15 +524,6 @@
       background: var(--sage);
       text-align: center;
       position: relative;
-    }
-    .rsvp-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: -5%;
-      width: 110%;
-      height: 80px;
-      background: var(--sage-dark);
-      border-radius: 50% 50% 0 0;
     }
 
     .rsvp-intro {
@@ -789,21 +667,13 @@
 
     /* ── Save the Date (Календарь) ──────────────────────────── */
     .save-date-section {
-      padding: var(--section-pad) 2rem calc(var(--section-pad) + 60px);
+      padding: var(--section-pad) 2rem;
       background: var(--sage);
       text-align: center;
       position: relative;
-    }
-
-    /* Арка снизу — off-white полукруг, перекрывает переход */
-    .save-date-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: -5%;
-      width: 110%;
-      height: 80px;
-      background: var(--off-white);
-      border-radius: 50% 50% 0 0;
+      margin: 0 1rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
     }
 
     .save-date-heading {
@@ -915,12 +785,6 @@
 
     @media (max-width: 640px) {
       :root { --section-pad: 3rem; }
-      .nav-links {
-        background: rgba(58,99,96,0.97);
-      }
-      .nav-links a {
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
     }
 
     /* ── Сердечки-разделители ─────────────────────────────────────── */
@@ -943,63 +807,219 @@
         animation: none;
       }
     }
+
+    /* ── Полоса фото (между КОГДА? и обратным отсчётом) ──────────── */
+    .photo-strip {
+      width: 100%;
+      height: 60vw;
+      max-height: 520px;
+      overflow: hidden;
+      line-height: 0;
+      font-size: 0;
+    }
+    .photo-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Обратный отсчёт с фото-фоном ────────────────────────────── */
+    .countdown-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .countdown-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .countdown-section .section-title { position: relative; z-index: 2; color: var(--white); }
+    .countdown-section .section-subtitle { position: relative; z-index: 2; color: rgba(255,255,255,0.7); }
+    .countdown-section .countdown-grid { position: relative; z-index: 2; }
+
+    /* ── Финальный блок ───────────────────────────────────────────── */
+    .finale-section {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--section-pad) 2rem;
+    }
+    .finale-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .finale-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .finale-text {
+      font-family: var(--font-sans);
+      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+    .finale-names {
+      font-family: var(--font-script);
+      font-size: 2rem;
+      color: rgba(255,255,255,0.9);
+      position: relative;
+      z-index: 2;
+      margin-top: 1.5rem;
+    }
+    .finale-date {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      position: relative;
+      z-index: 2;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Dress Code ───────────────────────────────────────────────── */
+    .dresscode-section {
+      padding: calc(var(--section-pad) + 50px) 2rem;
+      background: var(--white);
+      text-align: center;
+      position: relative;
+    }
+    .dresscode-section::before,
+    .dresscode-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 80px;
+      background: var(--off-white);
+      pointer-events: none;
+    }
+    .dresscode-section::before {
+      top: 0;
+      clip-path: ellipse(55% 50% at 50% 0%);
+    }
+    .dresscode-section::after {
+      bottom: 0;
+      clip-path: ellipse(55% 50% at 50% 100%);
+    }
+    .dresscode-section > * { position: relative; z-index: 1; }
+    .dresscode-title {
+      font-family: var(--font-sans);
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .dresscode-swatches {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .dresscode-swatch {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--swatch);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Навигация -->
-  <nav class="nav">
-    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
-      <span class="nav-toggle-icon">☰</span>
-    </button>
-    <div class="nav-links">
-      <a href="#save-date">Дата</a>
-      <a href="#story">История</a>
-      <a href="#gallery">Фото</a>
-      <a href="#schedule">Программа</a>
-      <a href="#venue">Место</a>
-      <a href="#rsvp">Ответ</a>
-    </div>
-  </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <span class="hero-floral hero-floral--tl">🌿</span>
-    <span class="hero-floral hero-floral--br">🌿</span>
-
-    <p class="hero-eyebrow">Приглашение на свадьбу</p>
-
+    <img class="hero-photo" src="photo.jpg" alt="" />
+    <p class="hero-eyebrow">10/06</p>
     <h1 class="hero-names">
       <span data-groom>Иван</span>
       <span class="hero-ampersand">&amp;</span>
       <span data-bride>Яна</span>
     </h1>
 
-    <div class="sage-line"></div>
-
-    <p class="hero-date">10 июня 2026 года &nbsp;·&nbsp; среда</p>
-    <p class="hero-venue-name" data-venue>Русская рыбалка в Комарово</p>
-
-    <div class="hero-scroll">прокрутите вниз</div>
   </section>
 
   <!-- Save the Date -->
   <section class="save-date-section section--sage" id="save-date">
-    <h2 class="save-date-heading animate-on-scroll">КОГДА?</h2>
-    <span class="save-date-month animate-on-scroll" id="save-date-month"></span>
-    <div class="sage-line animate-on-scroll"></div>
-    <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
-    <div class="sage-line animate-on-scroll"></div>
-    <div class="section-heart">
-      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
-              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
-      </svg>
+    <h2 class="save-date-heading">КОГДА?</h2>
+    <span class="save-date-month" id="save-date-month"></span>
+    <div class="sage-line"></div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="sage-line"></div>
+  </section>
+
+  <!-- Фото полоса -->
+  <div class="photo-strip">
+    <img src="photo.jpg" alt="" />
+  </div>
+
+  <!-- Место -->
+  <section class="venue-section" id="venue">
+    <h2 class="section-title animate-on-scroll">Место проведения</h2>
+    <span class="section-subtitle animate-on-scroll">где нас найти</span>
+
+    <div class="venue-card animate-on-scroll">
+      <span class="venue-icon">🏡</span>
+      <h3 class="venue-name" data-venue>Русская рыбалка в Комарово</h3>
+      <p class="venue-address" id="venue-address">пос. Комарово, Приморское шоссе, 452</p>
+      <div class="sage-line"></div>
+      <a class="btn" id="venue-map-link" href="#" target="_blank" rel="noopener">
+        Открыть на карте
+      </a>
+    </div>
+  </section>
+
+  <!-- Dress Code -->
+  <section class="dresscode-section" id="dresscode">
+    <h2 class="dresscode-title animate-on-scroll">DRESS CODE</h2>
+    <div class="dresscode-swatches animate-on-scroll">
+      <div class="dresscode-swatch" style="--swatch:#3a6360"></div>
+      <div class="dresscode-swatch" style="--swatch:#6a9e9b"></div>
+      <div class="dresscode-swatch" style="--swatch:#c8b89a"></div>
+      <div class="dresscode-swatch" style="--swatch:#8b7355"></div>
+      <div class="dresscode-swatch" style="--swatch:#f5f5f3; outline: 1px solid #d0d0cc;"></div>
+      <div class="dresscode-swatch" style="--swatch:#2c2c2c"></div>
+    </div>
+  </section>
+
+  <!-- Программа -->
+  <section class="schedule-section section--sage" id="schedule">
+    <h2 class="section-title animate-on-scroll">Программа вечера</h2>
+    <span class="section-subtitle animate-on-scroll">10 июня 2026</span>
+
+    <div class="schedule-list animate-on-scroll" id="schedule-list">
+      <!-- заполняется через TypeScript -->
     </div>
   </section>
 
   <!-- Обратный отсчёт -->
   <section class="countdown-section" id="countdown">
+    <img class="countdown-photo" src="photo.jpg" alt="" />
     <h2 class="section-title animate-on-scroll">До нашего торжества</h2>
     <span class="section-subtitle animate-on-scroll">осталось совсем немного</span>
 
@@ -1023,100 +1043,6 @@
         <span class="countdown-number" id="countdown-seconds">00</span>
         <span class="countdown-label">секунд</span>
       </div>
-    </div>
-  </section>
-
-  <!-- История -->
-  <section class="story-section section--sage" id="story">
-    <h2 class="section-title animate-on-scroll">Наша история</h2>
-    <span class="section-subtitle animate-on-scroll">как всё начиналось</span>
-
-    <div class="story-grid">
-      <div class="story-block animate-on-scroll">
-        <span class="story-year">2022</span>
-        <p class="story-subtitle">Первая встреча</p>
-        <p class="story-text">
-          Мы встретились совершенно случайно — и поняли, что случайностей не бывает.
-          Один взгляд изменил всё.
-        </p>
-      </div>
-
-      <div class="story-divider animate-on-scroll">
-        <span>❧</span>
-      </div>
-
-      <div class="story-block animate-on-scroll">
-        <span class="story-year">2025</span>
-        <p class="story-subtitle">Предложение</p>
-        <p class="story-text">
-          Под звёздным небом прозвучало «да» — и мы решили, что наша история
-          заслуживает продолжения навсегда.
-        </p>
-      </div>
-    </div>
-    <div class="section-heart">
-      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
-              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- Галерея -->
-  <section class="gallery-section" id="gallery">
-    <h2 class="section-title animate-on-scroll">Наши моменты</h2>
-    <span class="section-subtitle animate-on-scroll">фотографии</span>
-
-    <div class="gallery-grid animate-on-scroll" id="gallery-grid">
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder" style="--ph-color:#c5dbd9"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder gallery-placeholder--tall" style="--ph-color:#a8c9c7"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder" style="--ph-color:#8ab8b6"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder gallery-placeholder--tall" style="--ph-color:#6aa6a4"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder" style="--ph-color:#c5dbd9"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder gallery-placeholder--tall" style="--ph-color:#a8c9c7"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder" style="--ph-color:#8ab8b6"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder" style="--ph-color:#6aa6a4"></div></div>
-      <div class="gallery-item" data-full=""><div class="gallery-placeholder gallery-placeholder--tall" style="--ph-color:#c5dbd9"></div></div>
-    </div>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото">
-      <button class="lightbox-close" aria-label="Закрыть">✕</button>
-      <button class="lightbox-prev" aria-label="Предыдущее фото">‹</button>
-      <img class="lightbox-img" alt="Фото" />
-      <button class="lightbox-next" aria-label="Следующее фото">›</button>
-    </div>
-  </section>
-
-  <!-- Программа -->
-  <section class="schedule-section section--sage" id="schedule">
-    <h2 class="section-title animate-on-scroll">Программа вечера</h2>
-    <span class="section-subtitle animate-on-scroll">10 июня 2026</span>
-
-    <div class="schedule-list animate-on-scroll" id="schedule-list">
-      <!-- заполняется через TypeScript -->
-    </div>
-    <div class="section-heart">
-      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
-              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- Место -->
-  <section class="venue-section" id="venue">
-    <h2 class="section-title animate-on-scroll">Место проведения</h2>
-    <span class="section-subtitle animate-on-scroll">где нас найти</span>
-
-    <div class="venue-card animate-on-scroll">
-      <span class="venue-icon">🏡</span>
-      <h3 class="venue-name" data-venue>Русская рыбалка в Комарово</h3>
-      <p class="venue-address" id="venue-address">пос. Комарово, Приморское шоссе, 452</p>
-      <div class="sage-line"></div>
-      <a class="btn" id="venue-map-link" href="#" target="_blank" rel="noopener">
-        Открыть на карте
-      </a>
     </div>
   </section>
 
@@ -1178,22 +1104,17 @@
 
       <button class="btn btn--submit" type="submit">Отправить ответ</button>
     </form>
-    <div class="section-heart">
-      <svg viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M50 30 C50 15 37 5 25 10 C13 15 5 27 5 38 C5 55 25 70 50 82 C75 70 95 55 95 38 C95 27 87 15 75 10 C63 5 50 15 50 30 Z"
-              stroke="white" stroke-width="4" fill="rgba(255,255,255,0.15)"/>
-      </svg>
-    </div>
   </section>
 
-  <!-- Футер -->
-  <footer class="footer">
-    <p class="footer-names">
+  <!-- Финальный блок + футер -->
+  <section class="finale-section">
+    <img class="finale-photo" src="photo.jpg" alt="" />
+    <p class="finale-text">ВСЕХ ЖДЁМ</p>
+    <p class="finale-names">
       <span data-groom>Иван</span> &amp; <span data-bride>Яна</span>
     </p>
-    <p class="footer-date">10 · 06 · 2026</p>
-    <p class="footer-hashtag" data-hashtag>#ИванИЯна2026</p>
-  </footer>
+    <p class="finale-date">10 · 06 · 2026</p>
+  </section>
 
   <script type="module" src="dist/main.js"></script>
 </body>
