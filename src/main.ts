@@ -1,6 +1,5 @@
-import type { WeddingConfig, RSVPFormData, RSVPStatus } from './types.js';
+import type { WeddingConfig } from './types.js';
 import { startCountdown, formatCountdownUnit } from './countdown.js';
-import { initGallery } from './gallery.js';
 
 // ─── Конфигурация свадьбы ────────────────────────────────────────────────────
 
@@ -143,58 +142,6 @@ function renderSaveDateCalendar(): void {
   grid.appendChild(fragment);
 }
 
-// ─── RSVP форма ───────────────────────────────────────────────────────────────
-
-function handleRSVP(event: Event): void {
-  event.preventDefault();
-
-  const form = event.target as HTMLFormElement;
-  const formData = new FormData(form);
-
-  const data: RSVPFormData = {
-    name: String(formData.get('name') ?? '').trim(),
-    guestsCount: Number(formData.get('guests') ?? 1),
-    status: (formData.get('status') as RSVPStatus) ?? 'pending',
-    message: String(formData.get('message') ?? '').trim() || undefined,
-  };
-
-  if (!data.name) {
-    showNotification('Пожалуйста, введите ваше имя', 'error');
-    return;
-  }
-
-  // В реальном проекте здесь был бы API-запрос
-  console.log('RSVP отправлен:', data);
-  showNotification(
-    data.status === 'attending'
-      ? `Ура! Ждём вас, ${data.name}! 🎉`
-      : `Спасибо за ответ, ${data.name}. Жаль, что не сможете присоединиться.`,
-    'success',
-  );
-
-  form.reset();
-}
-
-function showNotification(message: string, type: 'success' | 'error'): void {
-  const existing = document.getElementById('notification');
-  existing?.remove();
-
-  const notification = document.createElement('div');
-  notification.id = 'notification';
-  notification.className = `notification notification--${type}`;
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.classList.add('notification--visible');
-  }, 10);
-
-  setTimeout(() => {
-    notification.classList.remove('notification--visible');
-    setTimeout(() => notification.remove(), 400);
-  }, 4000);
-}
 
 // ─── Плавная прокрутка ────────────────────────────────────────────────────────
 
@@ -225,32 +172,6 @@ function initScrollAnimations(): void {
   document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 }
 
-// ─── Мобильная навигация ──────────────────────────────────────────────────────
-
-function initMobileNav(): void {
-  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
-  const links = document.querySelector<HTMLDivElement>('.nav-links');
-  if (!toggle || !links) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = links.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    toggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-    const icon = toggle.querySelector('.nav-toggle-icon');
-    if (icon) icon.textContent = isOpen ? '✕' : '☰';
-  });
-
-  links.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', () => {
-      links.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Открыть меню');
-      const icon = toggle.querySelector('.nav-toggle-icon');
-      if (icon) icon.textContent = '☰';
-    });
-  });
-}
-
 // ─── Инициализация ────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -272,14 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (addressEl) addressEl.textContent = WEDDING_CONFIG.venue.address;
 
   // Запускаем модули
-  initMobileNav();
   initCountdown();
   renderSchedule();
   renderSaveDateCalendar();
-  initGallery();
   initSmoothScroll();
   initScrollAnimations();
 
-  const rsvpForm = document.getElementById('rsvp-form');
-  rsvpForm?.addEventListener('submit', handleRSVP);
 });

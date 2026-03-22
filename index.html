@@ -7,24 +7,23 @@
   <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день нашей жизни" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <style>
+
     /* ── Сброс и базовые стили ────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --sage:        #4B6382;
-      --sage-dark:   #4B6382;
-      --sage-light:  #4B6382;
       --white:       #ffffff;           /* backgrounds */
       --off-white:   #f5f5f3;
       --text:        #2c2c2c;
       --text-muted:  #666660;
       --text-on-sage: #ffffff;           /* text colour on sage bg — may diverge */
 
-      --font-serif:  'Cormorant Garamond', Georgia, serif;
-      --font-sans:   'Montserrat', sans-serif;
-      --font-script: 'Pinyon Script', cursive;
+      --font-serif:  'Philosopher', Georgia, serif;
+      --font-sans:   'Manrope', sans-serif;
+      --font-script: 'Philosopher', Georgia, serif;
 
       --section-pad: clamp(4rem, 10vw, 8rem);
       --radius:      4px;
@@ -34,7 +33,7 @@
 
     body {
       font-family: var(--font-sans);
-      background: var(--off-white);
+      background: var(--white);
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
@@ -48,10 +47,10 @@
       color: var(--sage);
       text-align: center;
       margin-bottom: 0.5rem;
-      font-family: var(--font-sans);
+      font-family: 'Philosopher', var(--font-sans);
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.3em;
     }
 
     /* На зелёном фоне заголовок белый */
@@ -67,15 +66,15 @@
       margin-bottom: 3rem;
       display: block;
     }
-    .section--sage .section-subtitle { color: rgba(255,255,255,0.7); }
+    .section--sage .section-subtitle { color: var(--white); }
 
     .sage-line {
       width: 40px;
       height: 2px;
-      background: var(--sage-light);
+      background: var(--sage);
       margin: 1rem auto 2rem;
     }
-    .section--sage .sage-line { background: rgba(255,255,255,0.4); }
+    .section--sage .sage-line { background: var(--white); }
 
     /* ── Анимации ─────────────────────────────────────────────────── */
     .animate-on-scroll {
@@ -98,9 +97,9 @@
       justify-content: center;
       text-align: center;
       padding: 2rem;
-      background: var(--sage-dark);
+      background: var(--sage);
       overflow: hidden;
-      border-radius: 0 0 25% 25%;
+      border-radius: 0;
       z-index: 1;
     }
 
@@ -137,19 +136,18 @@
     .hero-floral--br { bottom: 1rem; right: 1rem; transform: rotate(180deg); }
 
     .hero-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
+      font-family: 'Philosopher', serif;
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--white);
       margin-bottom: 2rem;
       position: relative;
       z-index: 3;
     }
 
     .hero-names {
-      font-family: var(--font-script);
+      font-family: 'Philosopher', serif;
       font-size: clamp(3.5rem, 12vw, 8rem);
       font-weight: 300;
       color: var(--white);
@@ -162,16 +160,16 @@
 
     .hero-ampersand {
       font-size: clamp(2rem, 7vw, 5rem);
-      color: rgba(255,255,255,0.65);
+      color: var(--white);
       display: block;
       margin: 0.2em 0;
       font-style: italic;
     }
 
     .hero-date {
-      font-family: var(--font-serif);
+      font-family: 'Philosopher', serif;
       font-size: clamp(1rem, 3vw, 1.4rem);
-      color: rgba(255,255,255,0.75);
+      color: var(--white);
       letter-spacing: 0.15em;
       margin: 2rem 0 1rem;
       position: relative;
@@ -179,11 +177,11 @@
     }
 
     .hero-venue-name {
-      font-family: var(--font-sans);
+      font-family: 'Philosopher', serif;
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
+      color: var(--white);
       position: relative;
       z-index: 3;
     }
@@ -191,7 +189,7 @@
     .hero .sage-line {
       position: relative;
       z-index: 3;
-      background: rgba(255,255,255,0.4);
+      background: var(--white);
     }
     .hero-scroll::after {
       content: '↓';
@@ -210,13 +208,14 @@
       position: relative;
       overflow: hidden;
       text-align: center;
-      margin: 5%;
-      aspect-ratio: 1 / 1;
+      margin: 0;
+      background: #4B6382;
+      aspect-ratio: 1 / 1.08;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-      padding-bottom: 8%;
+      padding-bottom: 18%;
       gap: 0;
     }
 
@@ -224,10 +223,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2vw;
-      width: 100%;
+      gap: 1vw;
+      width: 75%;
       flex-wrap: nowrap;
-      padding: 0 5%;
+      padding: 0;
     }
 
     .countdown-item {
@@ -238,14 +237,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.3em;
-      background: var(--sage);
+      gap: 0.2em;
+      background: #A68868;
       border-radius: 50%;
     }
 
     .countdown-number {
       font-family: var(--font-sans);
-      font-size: clamp(1rem, 3vw, 2.2rem);
+      font-size: clamp(0.7rem, 4vw, 1.8rem);
       font-weight: 700;
       color: var(--white);
       line-height: 1;
@@ -254,142 +253,28 @@
     }
 
     .countdown-label {
-      font-size: clamp(0.4rem, 0.8vw, 0.6rem);
+      font-size: clamp(0.3rem, 1vw, 0.5rem);
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
+      color: var(--white);
     }
 
     .countdown-separator { display: none; }
 
 
     /* ── Галерея ──────────────────────────────────────────────────── */
-    .gallery-section {
-      padding: var(--section-pad) clamp(1rem, 5vw, 4rem);
-      background: var(--white);
-    }
-
-    .gallery-grid {
-      columns: 3;
-      column-gap: 0.8rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-      .gallery-grid { columns: 2; }
-    }
-
-    @media (max-width: 480px) {
-      .gallery-grid { columns: 1; }
-    }
-
-    .gallery-item {
-      break-inside: avoid;
-      margin-bottom: 0.8rem;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: var(--radius);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-item:hover img,
-    .gallery-item:hover .gallery-placeholder {
-      transform: scale(1.03);
-    }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 200px;
-      background: var(--ph-color, #c5dbd9);
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-placeholder--tall { height: 300px; }
-
-    /* ── Lightbox ─────────────────────────────────────────────────── */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(43, 29, 17, 0.96);
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .lightbox--visible {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .lightbox-img {
-      max-width: 90vw;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: var(--radius);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--gold-light);
-      font-size: 1.8rem;
-      cursor: pointer;
-      line-height: 1;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .lightbox-close:hover { opacity: 1; }
-
-    .lightbox-prev,
-    .lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: var(--gold-light);
-      font-size: 3rem;
-      cursor: pointer;
-      padding: 1rem;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-      line-height: 1;
-    }
-
-    .lightbox-prev:hover,
-    .lightbox-next:hover { opacity: 1; }
-
-    .lightbox-prev { left: 1rem; }
-    .lightbox-next { right: 1rem; }
-
-    @media (max-width: 480px) {
-      .lightbox-prev { left: 0.2rem; }
-      .lightbox-next { right: 0.2rem; }
-    }
-
     /* ── Расписание ───────────────────────────────────────────────── */
     .schedule-section {
       padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
       background: var(--sage);
-      border-radius: 80%;
-      overflow: hidden;
+      border-radius: 0;
+      overflow: visible;
+      position: relative;
+      z-index: 0;
     }
+
+    .schedule-section .section-title { font-family: 'Philosopher', var(--font-sans); }
 
     .schedule-list {
       max-width: 600px;
@@ -405,7 +290,7 @@
       align-items: center;
       gap: 1rem;
       padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid var(--white);
     }
     .schedule-item:last-child { border-bottom: none; }
 
@@ -414,7 +299,7 @@
     .schedule-time {
       font-family: var(--font-serif);
       font-size: 1.3rem;
-      color: rgba(255,255,255,0.7);
+      color: var(--white);
       font-weight: 300;
     }
 
@@ -431,33 +316,67 @@
       padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
       background: var(--white);
       text-align: center;
+      position: relative;
+      z-index: 1;
+      overflow: visible;
+    }
+    .venue-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110%;
+      height: 120px;
+      background: var(--white);
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .venue-section .section-title { color: #4B6382; }
+    .venue-section .venue-name { font-family: 'Philosopher', serif; }
+    .venue-section .section-subtitle { color: var(--white); }
+    .venue-section .sage-line { background: var(--white); }
+
+    .venue-photo-wrap {
+      position: relative;
+      width: 70%;
+      margin: 0 auto;
+      overflow: hidden;
     }
 
-    .venue-card {
-      display: inline-flex;
+    .venue-photo-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .venue-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
-      background: var(--off-white);
-      border: 1px solid rgba(74,122,120,0.2);
-      padding: 3rem 4rem;
-      max-width: 480px;
-      width: 100%;
+      justify-content: center;
+      gap: 0.2em;
     }
 
-    .venue-icon { font-size: 2rem; }
-
-    .venue-name {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      color: var(--sage-dark);
+    .venue-overlay-line1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      line-height: 1;
     }
 
-    .venue-address {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
+    .venue-overlay-line2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
 
     .btn {
@@ -491,125 +410,60 @@
       color: var(--sage);
     }
 
-    /* ── RSVP форма ───────────────────────────────────────────────── */
-    .rsvp-section {
+    /* ── Details ──────────────────────────────────────────────────── */
+    .details-section {
       padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem) calc(var(--section-pad) + 60px);
-      background: var(--sage);
+      background: var(--white);
       text-align: center;
       position: relative;
+      z-index: 1;
+      overflow: visible;
     }
+    .details-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 120px;
+      background: var(--white);
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .details-section::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 120px;
+      background: var(--white);
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .details-section > * {
+      position: relative;
+      z-index: 2;
+    }
+    .details-section .section-title { color: var(--sage); }
+    .details-section .section-subtitle { color: var(--text-muted); }
+    .details-section .sage-line { background: var(--sage); opacity: 0.3; }
 
     .rsvp-intro {
       font-family: var(--font-serif);
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       font-style: italic;
-      color: rgba(255,255,255,0.8);
-      max-width: 480px;
-      margin: 0 auto 3rem;
-    }
-
-    .rsvp-form {
+      color: var(--text-muted);
       max-width: 480px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      text-align: left;
-    }
-
-    .form-label {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      color: var(--white);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: var(--radius);
-      outline: none;
-      transition: border-color 0.3s;
-      appearance: none;
-    }
-    .form-input::placeholder { color: rgba(255,255,255,0.4); }
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: rgba(255,255,255,0.6);
-    }
-
-    .form-textarea { resize: vertical; min-height: 100px; }
-
-    .radio-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .radio-label input[type="radio"] {
-      accent-color: var(--white);
-      width: 1rem;
-      height: 1rem;
-    }
-
-    .btn--submit {
-      margin-top: 0.5rem;
-      padding: 1rem 3rem;
-      font-size: 0.65rem;
-    }
-
-    /* ── Уведомление ──────────────────────────────────────────────── */
-    .notification {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      padding: 1rem 2rem;
-      font-size: 0.875rem;
-      border-radius: var(--radius);
-      z-index: 999;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
-      max-width: 90vw;
-      text-align: center;
-    }
-    .notification--success {
-      background: var(--sage-dark);
-      color: rgba(255,255,255,0.9);
-    }
-    .notification--error {
-      background: #8b3a3a;
-      color: #f5d0d0;
-    }
-    .notification--visible {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
     }
 
     /* ── Футер ────────────────────────────────────────────────────── */
     .footer {
       padding: 3rem 2rem;
-      background: var(--sage-dark);
+      background: var(--sage);
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -619,22 +473,22 @@
 
     .footer-names {
       font-family: var(--font-script);
-      font-size: 2rem;
-      color: rgba(255,255,255,0.9);
-      font-weight: 300;
       font-style: italic;
+      font-size: 2rem;
+      color: var(--white);
+      font-weight: 300;
     }
 
     .footer-date {
       font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
+      color: var(--white);
     }
 
     .footer-hashtag {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.3);
+      color: var(--white);
       letter-spacing: 0.1em;
     }
 
@@ -644,12 +498,12 @@
       background: var(--sage);
       text-align: center;
       position: relative;
-      border-radius: 25% 25% 0 0;
-      margin-top: -5dvh;
+      border-radius: 0;
+      margin-top: 0;
     }
 
     .save-date-heading {
-      font-family: var(--font-sans);
+      font-family: 'Philosopher', var(--font-sans);
       font-size: clamp(2.5rem, 10vw, 5rem);
       font-weight: 700;
       color: var(--white);
@@ -662,7 +516,7 @@
       font-family: var(--font-sans);
       font-size: 0.75rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.7);
+      color: var(--white);
       letter-spacing: 0.3em;
       text-transform: uppercase;
       display: block;
@@ -683,7 +537,7 @@
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
+      color: var(--white);
       padding: 0.5rem 0;
       text-align: center;
     }
@@ -692,7 +546,7 @@
       font-family: var(--font-serif);
       font-size: clamp(1.1rem, 3vw, 1.5rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.9);
+      color: var(--white);
       padding: 0.6rem 0;
       text-align: center;
       position: relative;
@@ -783,16 +637,16 @@
     /* ── Полоса фото (между КОГДА? и обратным отсчётом) ──────────── */
     .photo-strip {
       width: 100%;
-      height: 60vw;
-      max-height: 520px;
       overflow: hidden;
       line-height: 0;
       font-size: 0;
+      position: relative;
+      z-index: 2;
+      background: #fff;
     }
     .photo-strip img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
@@ -805,23 +659,28 @@
       object-fit: cover;
       z-index: 0;
     }
-    .countdown-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 1;
-      pointer-events: none;
+    .countdown-wrapper {
+      position: relative;
     }
-    .countdown-section .section-title { position: relative; z-index: 2; color: var(--white); }
-    .countdown-section .section-subtitle { position: relative; z-index: 2; color: rgba(255,255,255,0.7); }
-    .countdown-section .countdown-grid { position: relative; z-index: 2; }
+    .countdown-bottom-photo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 0;
+      z-index: 2;
+    }
+    .countdown-section .countdown-grid { position: relative; z-index: 4; }
 
     /* ── Финальный блок ───────────────────────────────────────────── */
     .finale-section {
       position: relative;
+      z-index: 0;
       min-height: 420px;
-      overflow: hidden;
+      overflow: visible;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -846,7 +705,7 @@
       pointer-events: none;
     }
     .finale-text {
-      font-family: var(--font-sans);
+      font-family: 'Philosopher', var(--font-sans);
       font-size: clamp(2.5rem, 10vw, 6rem);
       font-weight: 700;
       color: var(--white);
@@ -857,8 +716,9 @@
     }
     .finale-names {
       font-family: var(--font-script);
+      font-style: italic;
       font-size: 2rem;
-      color: rgba(255,255,255,0.9);
+      color: var(--white);
       position: relative;
       z-index: 2;
       margin-top: 1.5rem;
@@ -867,7 +727,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: var(--white);
       position: relative;
       z-index: 2;
       margin-top: 0.5rem;
@@ -878,9 +738,20 @@
       padding: var(--section-pad) 2rem;
       background: var(--white);
       text-align: center;
+      position: relative;
+      overflow: visible;
+      z-index: 1;
+    }
+    .dresscode-wave {
+      position: absolute;
+      bottom: -60px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      display: block;
     }
     .dresscode-title {
-      font-family: var(--font-sans);
+      font-family: 'Philosopher', var(--font-sans);
       font-size: clamp(2rem, 8vw, 4rem);
       font-weight: 700;
       color: var(--text);
@@ -928,21 +799,29 @@
 
   <!-- Фото полоса -->
   <div class="photo-strip">
-    <img src="photo2.jpg" alt="" />
+    <img src="photo2%20%D1%81%20%D0%B2%D0%BE%D0%BB%D0%BD%D0%BE%D0%B9.png" alt="" />
   </div>
 
   <!-- Место -->
   <section class="venue-section" id="venue">
     <h2 class="section-title animate-on-scroll">Место проведения</h2>
 
-    <div class="venue-card animate-on-scroll">
-      <span class="venue-icon">🏡</span>
-      <h3 class="venue-name" data-venue>Русская рыбалка в Комарово</h3>
-      <p class="venue-address" id="venue-address">пос. Комарово, Приморское шоссе, 452</p>
-      <div class="sage-line"></div>
-      <a class="btn" id="venue-map-link" href="#" target="_blank" rel="noopener">
-        Открыть на карте
-      </a>
+    <div class="venue-photo-wrap animate-on-scroll">
+      <img src="%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%BA%D0%B0.jpg" alt="Русская рыбалка в Комарово" />
+      <div class="venue-photo-overlay">
+        <span class="venue-overlay-line1">Русская рыбалка</span>
+        <span class="venue-overlay-line2">Комарово</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Программа -->
+  <section class="schedule-section section--sage" id="schedule">
+    <h2 class="section-title animate-on-scroll">Программа вечера</h2>
+
+    <div class="schedule-list animate-on-scroll" id="schedule-list">
+      <!-- заполняется через TypeScript -->
     </div>
   </section>
 
@@ -957,21 +836,15 @@
       <div class="dresscode-swatch" style="--swatch:#A68868"></div>
       <div class="dresscode-swatch" style="--swatch:#E3C39D"></div>
     </div>
-  </section>
-
-  <!-- Программа -->
-  <section class="schedule-section section--sage" id="schedule">
-    <h2 class="section-title animate-on-scroll">Программа вечера</h2>
-
-    <div class="schedule-list animate-on-scroll" id="schedule-list">
-      <!-- заполняется через TypeScript -->
-    </div>
+    <svg class="dresscode-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.0,30.0 L20.0,33.3 L40.0,36.5 L60.0,39.6 L80.0,42.7 L100.0,45.6 L120.0,48.3 L140.0,50.7 L160.0,53.0 L180.0,54.9 L200.0,56.6 L220.0,58.0 L240.0,59.0 L260.0,59.7 L280.0,60.0 L300.0,59.9 L320.0,59.5 L340.0,58.8 L360.0,57.7 L380.0,56.3 L400.0,54.6 L420.0,52.6 L440.0,50.3 L460.0,47.7 L480.0,45.0 L500.0,42.1 L520.0,39.0 L540.0,35.9 L560.0,32.6 L580.0,29.3 L600.0,26.1 L620.0,22.9 L640.0,19.7 L660.0,16.7 L680.0,13.9 L700.0,11.2 L720.0,8.8 L740.0,6.6 L760.0,4.7 L780.0,3.1 L800.0,1.8 L820.0,0.9 L840.0,0.3 L860.0,0.0 L880.0,0.1 L900.0,0.6 L920.0,1.4 L940.0,2.5 L960.0,4.0 L980.0,5.8 L1000.0,7.9 L1020.0,10.2 L1040.0,12.8 L1060.0,15.6 L1080.0,18.5 L1100.0,21.6 L1120.0,24.8 L1140.0,28.0 L1160.0,31.3 L1180.0,34.6 L1200.0,37.8 L1220.0,40.9 L1240.0,43.9 L1260.0,46.7 L1280.0,49.3 L1300.0,51.7 L1320.0,53.8 L1340.0,55.6 L1360.0,57.2 L1380.0,58.4 L1400.0,59.3 L1420.0,59.8 L1440.0,60.0 L1440,0 L0,0 Z" fill="white"/>
+    </svg>
   </section>
 
   <!-- Обратный отсчёт -->
+  <div class="countdown-wrapper">
+  <img class="countdown-bottom-photo" src="photo3.jpg" alt="" />
   <section class="countdown-section" id="countdown">
-    <img class="countdown-photo" src="photo3.jpg" alt="" />
-
     <div class="countdown-grid animate-on-scroll">
       <div class="countdown-item">
         <span class="countdown-number" id="countdown-days">00</span>
@@ -995,64 +868,15 @@
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section class="rsvp-section section--sage" id="rsvp">
-    <h2 class="section-title animate-on-scroll">Анкета гостя</h2>
-    <span class="section-subtitle animate-on-scroll">пожалуйста заполните анкету, чтобы мы знали, что вы придёте</span>
+  </div><!-- /countdown-wrapper -->
 
+  <!-- Детали -->
+  <section class="details-section section--sage" id="details">
+    <h2 class="section-title animate-on-scroll">Детали</h2>
+    <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
-      Ваш ответ поможет нам сделать этот вечер незабываемым для каждого гостя.
+      Пожалуйста, воздержитесь от покупки цветов, так как долго наслаждаться их красотой мы не сможем.
     </p>
-
-    <form class="rsvp-form animate-on-scroll" id="rsvp-form" novalidate>
-      <div class="form-group">
-        <label class="form-label" for="rsvp-name">Ваше имя</label>
-        <input
-          class="form-input"
-          id="rsvp-name"
-          name="name"
-          type="text"
-          placeholder="Иван Петров"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Вы придёте?</label>
-        <div class="radio-group">
-          <label class="radio-label">
-            <input type="radio" name="status" value="attending" checked />
-            С радостью приду!
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="status" value="not_attending" />
-            К сожалению, не смогу
-          </label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="rsvp-guests">Количество гостей</label>
-        <select class="form-select" id="rsvp-guests" name="guests">
-          <option value="1">1 человек (только я)</option>
-          <option value="2">2 человека</option>
-          <option value="3">3 человека</option>
-          <option value="4">4 человека</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="rsvp-message">Пожелание молодожёнам (необязательно)</label>
-        <textarea
-          class="form-textarea"
-          id="rsvp-message"
-          name="message"
-          placeholder="Напишите тёплые слова…"
-        ></textarea>
-      </div>
-
-      <button class="btn btn--submit" type="submit">Отправить ответ</button>
-    </form>
   </section>
 
   <!-- Финальный блок + футер -->
