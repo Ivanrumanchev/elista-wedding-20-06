@@ -13,12 +13,11 @@ const WEDDING_CONFIG: WeddingConfig = {
     mapUrl: 'https://maps.google.com/maps?q=Русская+рыбалка+Комарово',
   },
   schedule: [
-    { time: '9:15',  title: 'Церемония бракосочетания', icon: '💍' },
-    { time: '10:15', title: 'Фуршет и фотосессия', icon: '🥂' },
-    { time: '11:45', title: 'Торжественный банкет', icon: '🍽️' },
-    { time: '13:15', title: 'Первый танец', icon: '💃' },
-    { time: '13:45', title: 'Торт и поздравления', icon: '🎂' },
-    { time: '16:15', title: 'Завершение вечера', icon: '✨' },
+    { time: '9:40',  title: 'Регистрация брака во Дворце бракосочетания №2 (для желающих)', icon: '💍' },
+    { time: '15:00', title: 'Сбор гостей в "Русской рыбалке"', icon: '🍽️' },
+    { time: '16:00', title: 'Церемония бракосочетания и начало программы', icon: '✨' },
+    { time: '22:00', title: 'Торт и танцы', icon: '💃' },
+    { time: '23:00', title: 'Завершение вечера, трансфер до метро', icon: '🚌' },
   ],
   rsvpEmail: 'our.wedding@example.com',
   hashtag: '#ИванИЯна2026',
@@ -84,7 +83,7 @@ function renderSaveDateCalendar(): void {
     'январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
     'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь',
   ];
-  monthLabel.textContent = `${monthNames[month]} ${year}`;
+  monthLabel.textContent = '';
 
   // Weekday headers (Mon-first)
   const weekdays = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];

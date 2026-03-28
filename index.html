@@ -90,35 +90,43 @@
     /* ── Hero секция ──────────────────────────────────────────────── */
     .hero {
       position: relative;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      background: var(--sage);
+      background: var(--white);
       overflow: hidden;
       border-radius: 0;
       z-index: 1;
     }
 
     .hero-photo {
-      position: absolute;
-      inset: 0;
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      position: relative;
       z-index: 0;
+      border-radius: 0 0 33% 33%;
     }
 
-    /* Тёмный оверлей */
-    .hero::before {
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      z-index: 3;
+    }
+
+    /* Тёмный оверлей только на фото */
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo-wrap::after {
       content: '';
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.38);
-      z-index: 1;
+      border-radius: 0 0 33% 33%;
       pointer-events: none;
     }
 
@@ -161,8 +169,7 @@
     .hero-ampersand {
       font-size: clamp(2rem, 7vw, 5rem);
       color: var(--white);
-      display: block;
-      margin: 0.2em 0;
+      display: inline;
       font-style: italic;
     }
 
@@ -209,13 +216,13 @@
       overflow: hidden;
       text-align: center;
       margin: 0;
-      background: #4B6382;
-      aspect-ratio: 1 / 1.08;
+      background: var(--white);
+      aspect-ratio: 1 / 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
-      padding-bottom: 18%;
+      justify-content: flex-start;
+      padding-top: 15%;
       gap: 0;
     }
 
@@ -224,7 +231,7 @@
       justify-content: center;
       align-items: center;
       gap: 1vw;
-      width: 75%;
+      width: 90%;
       flex-wrap: nowrap;
       padding: 0;
     }
@@ -268,10 +275,11 @@
     .schedule-section {
       padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
       background: var(--sage);
-      border-radius: 0;
-      overflow: visible;
+      border-radius: 50px;
+      overflow: hidden;
       position: relative;
       z-index: 0;
+      margin: 0 15px;
     }
 
     .schedule-section .section-title { font-family: 'Philosopher', var(--font-sans); }
@@ -294,7 +302,7 @@
     }
     .schedule-item:last-child { border-bottom: none; }
 
-    .schedule-icon { font-size: 1.2rem; text-align: center; }
+    .schedule-icon { font-size: 1.3rem; text-align: center; }
 
     .schedule-time {
       font-family: var(--font-serif);
@@ -305,7 +313,7 @@
 
     .schedule-title {
       font-family: var(--font-sans);
-      font-size: 0.85rem;
+      font-size: 1.3rem;
       font-weight: 400;
       color: var(--white);
       letter-spacing: 0.05em;
@@ -320,18 +328,7 @@
       z-index: 1;
       overflow: visible;
     }
-    .venue-section::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110%;
-      height: 120px;
-      background: var(--white);
-      border-radius: 50%;
-      z-index: 2;
-    }
+    .venue-section::after { display: none; }
     .venue-section .section-title { color: #4B6382; }
     .venue-section .venue-name { font-family: 'Philosopher', serif; }
     .venue-section .section-subtitle { color: var(--white); }
@@ -339,6 +336,7 @@
 
     .venue-photo-wrap {
       position: relative;
+      z-index: 3;
       width: 70%;
       margin: 0 auto;
       overflow: hidden;
@@ -416,17 +414,17 @@
       background: var(--white);
       text-align: center;
       position: relative;
-      z-index: 1;
+      z-index: 5;
       overflow: visible;
     }
     .details-section::after {
       content: '';
       position: absolute;
-      bottom: -60px;
+      bottom: -50px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
-      height: 120px;
+      height: 100px;
       background: var(--white);
       border-radius: 50%;
       z-index: 1;
@@ -434,14 +432,14 @@
     .details-section::before {
       content: '';
       position: absolute;
-      top: -60px;
+      top: -50px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
-      height: 120px;
+      height: 100px;
       background: var(--white);
       border-radius: 50%;
-      z-index: 2;
+      z-index: 3;
     }
     .details-section > * {
       position: relative;
@@ -498,8 +496,9 @@
       background: var(--sage);
       text-align: center;
       position: relative;
-      border-radius: 0;
-      margin-top: 0;
+      border-radius: 10%;
+      margin: -40px 15px 0;
+      z-index: 1;
     }
 
     .save-date-heading {
@@ -641,8 +640,9 @@
       line-height: 0;
       font-size: 0;
       position: relative;
-      z-index: 2;
+      z-index: 0;
       background: #fff;
+      margin-top: -100px;
     }
     .photo-strip img {
       width: 100%;
@@ -667,7 +667,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 75%;
+      width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 0;
@@ -740,7 +740,7 @@
       text-align: center;
       position: relative;
       overflow: visible;
-      z-index: 1;
+      z-index: 3;
     }
     .dresscode-wave {
       position: absolute;
@@ -749,6 +749,7 @@
       width: 100%;
       height: 60px;
       display: block;
+      z-index: 3;
     }
     .dresscode-title {
       font-family: 'Philosopher', var(--font-sans);
@@ -762,12 +763,15 @@
     .dresscode-swatches {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 0;
       flex-wrap: wrap;
     }
+    .dresscode-swatch + .dresscode-swatch {
+      margin-left: -20px;
+    }
     .dresscode-swatch {
-      width: 52px;
-      height: 52px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
       background: var(--swatch);
     }
@@ -778,19 +782,22 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img class="hero-photo" src="photo1.jpg" alt="" />
-    <p class="hero-eyebrow animate-on-scroll">10/06</p>
-    <h1 class="hero-names animate-on-scroll">
-      <span data-groom>Иван</span>
-      <span class="hero-ampersand">&amp;</span>
-      <span data-bride>Яна</span>
-    </h1>
-
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="photo1.jpg" alt="" />
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow animate-on-scroll">10/06</p>
+      <h1 class="hero-names animate-on-scroll">
+        <span data-groom>Иван</span>
+        <span class="hero-ampersand">&amp;</span>
+        <span data-bride>Яна</span>
+      </h1>
+    </div>
   </section>
 
   <!-- Save the Date -->
   <section class="save-date-section section--sage" id="save-date">
-    <h2 class="save-date-heading animate-on-scroll">КОГДА?</h2>
+    <h2 class="save-date-heading animate-on-scroll">ИЮНЬ</h2>
     <span class="save-date-month animate-on-scroll" id="save-date-month"></span>
     <div class="sage-line animate-on-scroll"></div>
     <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
@@ -818,7 +825,7 @@
 
   <!-- Программа -->
   <section class="schedule-section section--sage" id="schedule">
-    <h2 class="section-title animate-on-scroll">Программа вечера</h2>
+    <h2 class="section-title animate-on-scroll">Программа</h2>
 
     <div class="schedule-list animate-on-scroll" id="schedule-list">
       <!-- заполняется через TypeScript -->
@@ -877,15 +884,20 @@
     <p class="rsvp-intro animate-on-scroll">
       Пожалуйста, воздержитесь от покупки цветов, так как долго наслаждаться их красотой мы не сможем.
     </p>
+    <div class="sage-line animate-on-scroll"></div>
+    <p class="rsvp-intro animate-on-scroll">
+      Свадьба будет проходить на берегу Финского залива. Если захочется, можно будет погулять по пляжу или даже поплавать.
+    </p>
+    <div class="sage-line animate-on-scroll"></div>
+    <p class="rsvp-intro animate-on-scroll">
+      На территории будет мини-зоопарк, можно будет поздороваться с милейшими кроликами и козликами.
+    </p>
   </section>
 
   <!-- Финальный блок + футер -->
   <section class="finale-section">
     <img class="finale-photo" src="photo4.jpg" alt="" />
     <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
-    <p class="finale-names animate-on-scroll">
-      <span data-groom>Иван</span> &amp; <span data-bride>Яна</span>
-    </p>
   </section>
 
   <script type="module" src="dist/main.js"></script>
