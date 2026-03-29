@@ -29,7 +29,7 @@
       --radius:      4px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       font-family: var(--font-sans);
@@ -222,7 +222,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 15%;
+      padding-top: 20%;
       gap: 0;
     }
 
@@ -274,7 +274,7 @@
     /* ── Расписание ───────────────────────────────────────────────── */
     .schedule-section {
       padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
-      background: var(--sage);
+      background: #a4b5c4;
       border-radius: 50px;
       overflow: hidden;
       position: relative;
@@ -410,7 +410,7 @@
 
     /* ── Details ──────────────────────────────────────────────────── */
     .details-section {
-      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem) calc(var(--section-pad) + 60px);
+      padding: 0 clamp(1.5rem, 8vw, 6rem);
       background: var(--white);
       text-align: center;
       position: relative;
@@ -443,7 +443,7 @@
     }
     .details-section > * {
       position: relative;
-      z-index: 2;
+      z-index: 4;
     }
     .details-section .section-title { color: var(--sage); }
     .details-section .section-subtitle { color: var(--text-muted); }
@@ -493,7 +493,7 @@
     /* ── Save the Date (Календарь) ──────────────────────────── */
     .save-date-section {
       padding: var(--section-pad) 2rem;
-      background: var(--sage);
+      background: #a4b5c4;
       text-align: center;
       position: relative;
       border-radius: 10%;
@@ -606,6 +606,7 @@
     @media (max-width: 480px) {
       .schedule-item { grid-template-columns: 2rem 5rem 1fr; gap: 0.5rem; }
       .venue-card { padding: 2rem 1.5rem; }
+      .section-title { letter-spacing: 0.1em; font-size: clamp(1.8rem, 7vw, 4.5rem); }
     }
 
     @media (max-width: 640px) {
@@ -709,10 +710,12 @@
       font-size: clamp(2.5rem, 10vw, 6rem);
       font-weight: 700;
       color: var(--white);
+      white-space: nowrap;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       position: relative;
       z-index: 2;
+      margin-top: -230px;
     }
     .finale-names {
       font-family: var(--font-script);
@@ -806,7 +809,7 @@
 
   <!-- Фото полоса -->
   <div class="photo-strip">
-    <img src="photo2%20%D1%81%20%D0%B2%D0%BE%D0%BB%D0%BD%D0%BE%D0%B9.png" alt="" />
+    <img src="photo2.png" alt="" />
   </div>
 
   <!-- Место -->
@@ -850,7 +853,7 @@
 
   <!-- Обратный отсчёт -->
   <div class="countdown-wrapper">
-  <img class="countdown-bottom-photo" src="photo3.jpg" alt="" />
+  <img class="countdown-bottom-photo" src="photo4.jpg" alt="" />
   <section class="countdown-section" id="countdown">
     <div class="countdown-grid animate-on-scroll">
       <div class="countdown-item">
@@ -896,7 +899,7 @@
 
   <!-- Финальный блок + футер -->
   <section class="finale-section">
-    <img class="finale-photo" src="photo4.jpg" alt="" />
+    <img class="finale-photo" src="photo5.jpg" alt="" />
     <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
   </section>
 
