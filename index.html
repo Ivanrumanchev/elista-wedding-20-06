@@ -321,7 +321,7 @@
 
     /* ── Место проведения ─────────────────────────────────────────── */
     .venue-section {
-      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      padding: 12px clamp(1.5rem, 8vw, 6rem) var(--section-pad);
       background: var(--white);
       text-align: center;
       position: relative;
@@ -337,15 +337,41 @@
     .venue-photo-wrap {
       position: relative;
       z-index: 3;
-      width: 70%;
-      margin: 0 auto;
-      overflow: hidden;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      padding: 10px 0 20px;
     }
 
     .venue-photo-wrap img {
       display: block;
-      width: 100%;
+      width: 50%;
+      flex-shrink: 0;
       height: auto;
+      object-fit: cover;
+    }
+
+    .venue-photo-wrap img:first-child {
+      transform: rotate(-10deg);
+      transform-origin: center center;
+      z-index: 1;
+    }
+
+    .venue-photo-wrap img:last-child {
+      transform: rotate(12deg) translateY(15px);
+      transform-origin: center center;
+      z-index: 2;
+    }
+
+    .venue-address {
+      text-align: center;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      color: #666660;
+      margin-top: 1rem;
     }
 
     .venue-photo-overlay {
@@ -492,7 +518,7 @@
 
     /* ── Save the Date (Календарь) ──────────────────────────── */
     .save-date-section {
-      padding: var(--section-pad) 2rem;
+      padding: var(--section-pad) 2rem 12px;
       background: #a4b5c4;
       text-align: center;
       position: relative;
@@ -767,16 +793,17 @@
       display: flex;
       justify-content: center;
       gap: 0;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
     .dresscode-swatch + .dresscode-swatch {
-      margin-left: -20px;
+      margin-left: clamp(-20px, -2.9vw, -10px);
     }
     .dresscode-swatch {
-      width: 75px;
-      height: 75px;
+      width: clamp(60px, 12vw, 140px);
+      height: clamp(60px, 12vw, 140px);
       border-radius: 50%;
       background: var(--swatch);
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -809,7 +836,7 @@
 
   <!-- Фото полоса -->
   <div class="photo-strip">
-    <img src="photo2.png" alt="" />
+    <img src="photo2.jpg" alt="" />
   </div>
 
   <!-- Место -->
@@ -817,12 +844,11 @@
     <h2 class="section-title animate-on-scroll">Место проведения</h2>
 
     <div class="venue-photo-wrap animate-on-scroll">
-      <img src="%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%BA%D0%B0.jpg" alt="Русская рыбалка в Комарово" />
-      <div class="venue-photo-overlay">
-        <span class="venue-overlay-line1">Русская рыбалка</span>
-        <span class="venue-overlay-line2">Комарово</span>
-      </div>
+      <img src="place1.jpg" alt="" />
+      <img src="place2.jpg" alt="" />
     </div>
+
+    <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#4b6382" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://yandex.com/maps/-/CPbfuP82" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">«Русская рыбалка»<br>Приморское ш. 452А, Комарово</a></p>
 
   </section>
 
