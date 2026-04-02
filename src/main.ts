@@ -15,7 +15,7 @@ const WEDDING_CONFIG: WeddingConfig = {
   schedule: [
     {
       time: '9:40',
-      title: 'Регистрация брака во Дворце бракосочетания №2',
+      title: 'Регистрация брака',
       svg: `<img src="https://cdn-icons-png.flaticon.com/128/706/706455.png" alt="">`,
     },
     {
