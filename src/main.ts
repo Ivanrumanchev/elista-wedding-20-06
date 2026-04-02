@@ -15,7 +15,7 @@ const WEDDING_CONFIG: WeddingConfig = {
   schedule: [
     {
       time: '9:40',
-      title: 'Регистрация брака',
+      title: 'Регистрация брака во Дворце бракосочетания №2',
       svg: `<img src="https://cdn-icons-png.flaticon.com/128/706/706455.png" alt="">`,
     },
     {
@@ -25,7 +25,7 @@ const WEDDING_CONFIG: WeddingConfig = {
     },
     {
       time: '16:00',
-      title: 'Церемония и банкет',
+      title: 'Выездная церемония и банкет',
       svg: `<img src="https://cdn-icons-png.flaticon.com/128/3314/3314457.png" alt="">`,
     },
     {
@@ -35,7 +35,7 @@ const WEDDING_CONFIG: WeddingConfig = {
     },
     {
       time: '23:00',
-      title: 'Завершение банкета, трансфер до метро',
+      title: 'Завершение, трансфер до метро',
       svg: `<img src="https://cdn-icons-png.flaticon.com/128/4274/4274245.png" alt="">`,
     },
   ],
@@ -72,7 +72,7 @@ function renderSchedule(): void {
 
   const fragment = document.createDocumentFragment();
 
-  WEDDING_CONFIG.schedule.forEach(({ time, svg }) => {
+  WEDDING_CONFIG.schedule.forEach(({ time, title, svg }) => {
     const item = document.createElement('div');
     item.className = 'timeline-item';
     item.innerHTML = `
@@ -82,6 +82,7 @@ function renderSchedule(): void {
       </div>
       <div class="timeline-content">
         <span class="timeline-time">${time}</span>
+        <span class="timeline-title">${title}</span>
       </div>
     `;
     fragment.appendChild(item);
