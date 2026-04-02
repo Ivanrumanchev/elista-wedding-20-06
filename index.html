@@ -726,6 +726,29 @@
       background: #fff;
       margin-top: -100px;
     }
+
+    .photo-strip-text {
+      position: absolute;
+      top: 10%;
+      left: 0;
+      right: 0;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      line-height: normal;
+      font-size: 1rem;
+    }
+
+    .photo-strip-text p {
+      font-family: var(--font-sans);
+      font-size: clamp(0.8rem, 3vw, 1rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+    }
     .photo-strip img {
       width: 100%;
       height: auto;
@@ -890,6 +913,11 @@
   <!-- Фото полоса -->
   <div class="photo-strip">
     <img src="photo2.png" alt="" />
+    <div class="photo-strip-text">
+      <p>Этим летом состоится очень важное событие для нас — наша свадьба.</p>
+      <p>И этот день мы не можем представить без вас!</p>
+      <p>Поэтому мы приглашаем вас разделить с нами этот долгожданный праздник!</p>
+    </div>
   </div>
 
   <!-- Место -->
