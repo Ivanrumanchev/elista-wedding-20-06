@@ -72,15 +72,13 @@ function renderSchedule(): void {
 
   const fragment = document.createDocumentFragment();
 
-  WEDDING_CONFIG.schedule.forEach(({ time, title, svg }, index) => {
-    const isLast = index === WEDDING_CONFIG.schedule.length - 1;
+  WEDDING_CONFIG.schedule.forEach(({ time, title, svg }) => {
     const item = document.createElement('div');
     item.className = 'timeline-item';
     item.innerHTML = `
       <div class="timeline-icon">${svg}</div>
       <div class="timeline-spine">
         <div class="timeline-dot"></div>
-        ${isLast ? '' : '<div class="timeline-line"></div>'}
       </div>
       <div class="timeline-content">
         <span class="timeline-time">${time}</span>
