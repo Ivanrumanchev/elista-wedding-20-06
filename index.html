@@ -999,6 +999,71 @@
     border-radius: 40px;
   }
 
+  /* ── Timeline (горизонтальный) ─────────────────────────────── */
+  .schedule-section {
+    padding: 3rem clamp(2rem, 5vw, 6rem);
+  }
+  .schedule-list {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 960px;
+    margin: 0 auto;
+    gap: 0;
+  }
+  .timeline-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: unset;
+    padding: 0;
+  }
+  .timeline-icon {
+    justify-content: center;
+    padding-right: 0;
+    padding-bottom: 0.75rem;
+    align-self: auto;
+  }
+  .timeline-icon img {
+    width: 48px;
+    height: 48px;
+  }
+  .timeline-spine {
+    width: 100%;
+    height: 40px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Горизонтальная линия вместо вертикальной */
+  .timeline-spine::before {
+    top: 50%;
+    bottom: unset;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+  .timeline-dot {
+    margin-top: 0;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .timeline-content {
+    padding-left: 0;
+    padding-top: 0.75rem;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+  }
+  .timeline-time {
+    font-size: 1.3rem;
+  }
+  .timeline-title {
+    font-size: 0.9rem;
+  }
+
   }
   </style>
 </head>
