@@ -25,7 +25,7 @@ const WEDDING_CONFIG: WeddingConfig = {
     },
     {
       time: '16:00',
-      title: 'Выездная церемония и банкет',
+      title: 'Церемония и банкет',
       svg: `<img src="https://cdn-icons-png.flaticon.com/128/3314/3314457.png" alt="">`,
     },
     {

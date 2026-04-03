@@ -7,7 +7,7 @@
   <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день нашей жизни" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&family=Pacifico&display=swap" rel="stylesheet" />
   <style>
 
     /* ── Сброс и базовые стили ────────────────────────────────────── */
@@ -17,13 +17,13 @@
       --sage:        #4B6382;
       --white:       #ffffff;           /* backgrounds */
       --off-white:   #f5f5f3;
-      --text:        #2c2c2c;
-      --text-muted:  #666660;
+      --text:        #071739;
+      --text-muted:  #071739;
       --text-on-sage: #ffffff;           /* text colour on sage bg — may diverge */
 
-      --font-serif:  'Philosopher', Georgia, serif;
-      --font-sans:   'Manrope', sans-serif;
-      --font-script: 'Philosopher', Georgia, serif;
+      --font-serif:  'Exo 2', sans-serif;
+      --font-sans:   'Exo 2', sans-serif;
+      --font-script: 'Exo 2', sans-serif;
 
       --section-pad: clamp(4rem, 10vw, 8rem);
       --radius:      4px;
@@ -44,10 +44,10 @@
 
     .section-title {
       font-size: clamp(2.5rem, 8vw, 4.5rem);
-      color: var(--sage);
+      color: #071739;
       text-align: center;
       margin-bottom: 0.5rem;
-      font-family: 'Philosopher', var(--font-sans);
+      font-family: var(--font-sans);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.3em;
@@ -114,6 +114,7 @@
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      padding-top: calc(2rem + 80px);
       z-index: 3;
     }
 
@@ -144,7 +145,7 @@
     .hero-floral--br { bottom: 1rem; right: 1rem; transform: rotate(180deg); }
 
     .hero-eyebrow {
-      font-family: 'Philosopher', serif;
+      font-family: 'Pacifico', cursive;
       font-size: clamp(3.5rem, 12vw, 8rem);
       font-weight: 300;
       letter-spacing: -0.02em;
@@ -155,8 +156,8 @@
     }
 
     .hero-names {
-      font-family: 'Philosopher', serif;
-      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-family: 'Pacifico', cursive;
+      font-size: 3.9rem;
       font-weight: 300;
       color: var(--white);
       line-height: 1;
@@ -167,14 +168,14 @@
     }
 
     .hero-ampersand {
-      font-size: clamp(2rem, 7vw, 5rem);
+      font-size: 2.5rem;
       color: var(--white);
       display: inline;
       font-style: italic;
     }
 
     .hero-date {
-      font-family: 'Philosopher', serif;
+      font-family: 'Pacifico', cursive;
       font-size: clamp(1rem, 3vw, 1.4rem);
       color: var(--white);
       letter-spacing: 0.15em;
@@ -184,7 +185,7 @@
     }
 
     .hero-venue-name {
-      font-family: 'Philosopher', serif;
+      font-family: 'Pacifico', cursive;
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -216,13 +217,13 @@
       overflow: hidden;
       text-align: center;
       margin: 0;
-      background: var(--white);
+      background: transparent;
       aspect-ratio: 1 / 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 20%;
+      padding-top: calc(20% - 10px);
       gap: 0;
     }
 
@@ -245,13 +246,12 @@
       align-items: center;
       justify-content: center;
       gap: 0.2em;
-      background: #A68868;
-      border-radius: 50%;
+      background: none;
     }
 
     .countdown-number {
       font-family: var(--font-sans);
-      font-size: clamp(0.7rem, 4vw, 1.8rem);
+      font-size: 2rem;
       font-weight: 700;
       color: var(--white);
       line-height: 1;
@@ -260,7 +260,7 @@
     }
 
     .countdown-label {
-      font-size: clamp(0.3rem, 1vw, 0.5rem);
+      font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -273,16 +273,16 @@
     /* ── Галерея ──────────────────────────────────────────────────── */
     /* ── Расписание ───────────────────────────────────────────────── */
     .schedule-section {
-      padding: var(--section-pad) clamp(1.5rem, 8vw, 6rem);
+      padding: 2rem clamp(1.5rem, 8vw, 6rem);
       background: #a4b5c4;
       border-radius: 50px;
-      overflow: hidden;
+      overflow: visible;
       position: relative;
-      z-index: 0;
+      z-index: 2;
       margin: 0 15px;
     }
 
-    .schedule-section .section-title { font-family: 'Philosopher', var(--font-sans); }
+    .schedule-section .section-title { font-family: var(--font-sans); }
 
     .schedule-list {
       max-width: 520px;
@@ -355,7 +355,7 @@
 
     .timeline-time {
       font-family: var(--font-serif);
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 300;
       color: white;
       line-height: 1;
@@ -363,7 +363,7 @@
 
     .timeline-title {
       font-family: var(--font-sans);
-      font-size: 0.85rem;
+      font-size: 1em;
       font-weight: 400;
       color: white;
       letter-spacing: 0.03em;
@@ -374,7 +374,8 @@
 
     /* ── Место проведения ─────────────────────────────────────────── */
     .venue-section {
-      padding: 12px clamp(1.5rem, 8vw, 6rem) var(--section-pad);
+      padding: 0px clamp(1.5rem, 8vw, 6rem) var(--section-pad);
+      margin-top: -15px;
       background: var(--white);
       text-align: center;
       position: relative;
@@ -382,8 +383,8 @@
       overflow: visible;
     }
     .venue-section::after { display: none; }
-    .venue-section .section-title { color: #4B6382; }
-    .venue-section .venue-name { font-family: 'Philosopher', serif; }
+    .venue-section .section-title { color: #071739; }
+    .venue-section .venue-name { font-family: var(--font-sans); }
     .venue-section .section-subtitle { color: var(--white); }
     .venue-section .sage-line { background: var(--white); }
 
@@ -420,10 +421,10 @@
 
     .venue-address {
       text-align: center;
-      font-family: 'Manrope', sans-serif;
+      font-family: var(--font-sans);
       font-size: 1rem;
       letter-spacing: 0.05em;
-      color: #666660;
+      color: #071739;
       margin-top: 1rem;
     }
 
@@ -439,7 +440,7 @@
     }
 
     .venue-overlay-line1 {
-      font-family: 'Manrope', sans-serif;
+      font-family: var(--font-sans);
       font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 300;
       color: var(--white);
@@ -448,7 +449,7 @@
     }
 
     .venue-overlay-line2 {
-      font-family: 'Manrope', sans-serif;
+      font-family: var(--font-sans);
       font-size: clamp(1.2rem, 3vw, 2rem);
       font-weight: 300;
       color: var(--white);
@@ -524,7 +525,7 @@
       position: relative;
       z-index: 4;
     }
-    .details-section .section-title { color: var(--sage); }
+    .details-section .section-title { color: #071739; }
     .details-section .section-subtitle { color: var(--text-muted); }
     .details-section .sage-line { background: var(--sage); opacity: 0.3; margin-bottom: 1rem; }
 
@@ -581,7 +582,7 @@
     }
 
     .save-date-heading {
-      font-family: 'Philosopher', var(--font-sans);
+      font-family: var(--font-sans);
       font-size: clamp(2.5rem, 10vw, 5rem);
       font-weight: 700;
       color: var(--white);
@@ -683,7 +684,7 @@
 
     /* ── Адаптив ──────────────────────────────────────────────────── */
     @media (max-width: 480px) {
-      .timeline-item { grid-template-columns: 1fr 32px 1fr; }
+      .timeline-item { grid-template-columns: 80px 32px 1fr; }
       .timeline-icon img { width: 60px; height: 60px; }
       .timeline-time { font-size: 1.2rem; }
       .venue-card { padding: 2rem 1.5rem; }
@@ -741,21 +742,32 @@
 
     .photo-strip-text {
       position: absolute;
-      top: 7%;
+      top: 9%;
       left: 0;
       right: 0;
-      padding: 1rem 2rem;
+      padding: 1rem calc(15px + 6px + 15px) 1rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
-      text-align: center;
+      text-align: right;
       line-height: normal;
       font-size: 1rem;
       z-index: 2;
     }
+    .photo-strip-text::after {
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: 1rem;
+      bottom: 1rem;
+      width: 6px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='20'%3E%3Cpath d='M3,0 Q6,5 3,10 Q0,15 3,20' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+      background-repeat: repeat-y;
+      background-size: 6px 20px;
+    }
 
     .photo-strip-text p {
-      font-family: 'Philosopher', var(--font-sans);
+      font-family: var(--font-sans);
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: white;
       line-height: 1.5;
@@ -779,7 +791,20 @@
     .countdown-wrapper {
       position: relative;
     }
+    .countdown-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 50%);
+      z-index: 3;
+      pointer-events: none;
+    }
     .countdown-bottom-photo {
+
       position: absolute;
       top: 50%;
       left: 50%;
@@ -822,7 +847,7 @@
       pointer-events: none;
     }
     .finale-text {
-      font-family: 'Philosopher', var(--font-sans);
+      font-family: var(--font-sans);
       font-size: clamp(2.5rem, 10vw, 6rem);
       font-weight: 700;
       color: var(--white);
@@ -852,18 +877,58 @@
       margin-top: 0.5rem;
     }
 
+    .heart-decor {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .calendar-wrap {
+      position: relative;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
     /* ── Dress Code ───────────────────────────────────────────────── */
+    .dresscode-text {
+      position: relative;
+      text-align: left;
+      padding: 1rem 2rem 1rem calc(15px + 6px + 15px);
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+    .dresscode-text p {
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #071739;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .dresscode-text::after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 1rem;
+      bottom: 1rem;
+      width: 6px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='20'%3E%3Cpath d='M3,0 Q6,5 3,10 Q0,15 3,20' fill='none' stroke='%23666660' stroke-width='2'/%3E%3C/svg%3E");
+      background-repeat: repeat-y;
+      background-size: 6px 20px;
+    }
     .dresscode-section {
       padding: var(--section-pad) 2rem;
       background: var(--white);
       text-align: center;
       position: relative;
       overflow: visible;
-      z-index: 3;
+      z-index: 5;
     }
     .dresscode-wave {
       position: absolute;
-      bottom: -60px;
+      bottom: -59px;
       left: 0;
       width: 100%;
       height: 60px;
@@ -871,13 +936,13 @@
       z-index: 3;
     }
     .dresscode-title {
-      font-family: 'Philosopher', var(--font-sans);
+      font-family: var(--font-sans);
       font-size: clamp(2rem, 8vw, 4rem);
       font-weight: 700;
       color: var(--text);
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
     }
     .dresscode-swatches {
       display: flex;
@@ -919,15 +984,18 @@
   <section class="save-date-section section--sage" id="save-date">
     <h2 class="save-date-heading animate-on-scroll">ИЮНЬ</h2>
     <span class="save-date-month animate-on-scroll" id="save-date-month"></span>
-    <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
+    <div class="calendar-wrap">
+      <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
+    </div>
+    <img class="heart-decor" style="top:-45px;right:25px;width:80px;height:80px;" src="сердце_final.png" alt="">
   </section>
 
   <!-- Фото полоса -->
   <div class="photo-strip">
     <img src="photo2.jpg" alt="" />
     <div class="photo-strip-text">
-      <p>Этим летом состоится очень важное событие для нас — наша свадьба, и этот день мы не можем представить без вас!</p>
-      <p>Поэтому мы приглашаем вас разделить с нами этот долгожданный праздник!</p>
+      <p>Этим летом состоится<br>важное событие — наша свадьба.</p>
+      <p>Мы приглашаем вас разделить с&nbsp;нами этот радостный день, в&nbsp;который<br><span style="font-style:italic;font-size:1.25em;">мы станем семьёй!</span></p>
     </div>
   </div>
 
@@ -940,12 +1008,13 @@
       <img src="place2.jpg" alt="" />
     </div>
 
-    <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#4b6382" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://yandex.com/maps/-/CPbfuP82" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">«Русская рыбалка»<br>Приморское ш. 452А, Комарово</a></p>
+    <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#071739" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://yandex.com/maps/-/CPbfuP82" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">«Русская рыбалка»<br>Приморское ш. 452А, Комарово</a></p>
 
   </section>
 
   <!-- Программа -->
   <section class="schedule-section section--sage" id="schedule">
+    <img class="heart-decor" style="top:-45px;left:25px;width:80px;height:80px;" src="сердце_final.png" alt="">
     <h2 class="section-title animate-on-scroll">Программа</h2>
 
     <div class="schedule-list animate-on-scroll" id="schedule-list">
@@ -956,9 +1025,12 @@
   <!-- Dress Code -->
   <section class="dresscode-section" id="dresscode">
     <h2 class="dresscode-title animate-on-scroll">DRESS CODE</h2>
+    <div class="dresscode-text animate-on-scroll">
+      <p>Мы постарались сделать праздник красивым и&nbsp;уютным, и&nbsp;будем рады, если ваши наряды будут гармонировать с&nbsp;общей цветовой гаммой</p>
+    </div>
     <div class="dresscode-swatches animate-on-scroll">
       <div class="dresscode-swatch" style="--swatch:#071739"></div>
-      <div class="dresscode-swatch" style="--swatch:#4B6382"></div>
+      <div class="dresscode-swatch" style="--swatch:#4d72a3"></div>
       <div class="dresscode-swatch" style="--swatch:#A4B5C4"></div>
       <div class="dresscode-swatch" style="--swatch:#CDD5DB"></div>
       <div class="dresscode-swatch" style="--swatch:#A68868"></div>
@@ -1003,26 +1075,24 @@
     <h2 class="section-title animate-on-scroll">Детали</h2>
     <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
-      Торжество будет проходить в Комарово. Добраться до места можно на электричке от Удельной или Финляндского вокзала, а также на автобусах № 211 и № 680.
+      Торжество будет проходить в&nbsp;Комарово. Добраться до&nbsp;места можно на&nbsp;электричке от&nbsp;Удельной или Финляндского вокзала, а также на&nbsp;автобусах № 211 и № 680.
     </p>
     <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
-      Пожалуйста, воздержитесь от покупки цветов, поскольку после свадьбы мы уезжаем и долго наслаждаться их красотой не сможем.
+      Пожалуйста, воздержитесь от&nbsp;покупки цветов, поскольку после&nbsp;свадьбы мы уезжаем и долго наслаждаться их красотой не сможем.
     </p>
     <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
-      Ресторан находится на берегу Финского залива. При желании и хорошей погоде можно будет погулять по пляжу или даже искупаться.
+      Ресторан находится на&nbsp;берегу Финского залива. При&nbsp;желании и хорошей погоде можно будет погулять по&nbsp;пляжу или даже искупаться.
     </p>
-    <div class="sage-line animate-on-scroll"></div>
-    <p class="rsvp-intro animate-on-scroll">
-      На территории есть мини-зоопарк, где можно увидеть милейших кроликов и козликов.
-    </p>
+
   </section>
 
   <!-- Финальный блок + футер -->
   <section class="finale-section">
     <img class="finale-photo" src="photo5.jpg" alt="" />
     <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
+    <img class="heart-decor" style="top:29%;left:48.5%;width:30px;height:30px;" src="сердце_final.png" alt="">
   </section>
 
   <script type="module" src="dist/main.js"></script>
