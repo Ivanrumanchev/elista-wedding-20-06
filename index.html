@@ -1015,7 +1015,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-template-columns: unset;
     padding: 0;
   }
   .timeline-icon {
@@ -1037,6 +1036,7 @@
   }
   /* Горизонтальная линия вместо вертикальной */
   .timeline-spine::before {
+    position: absolute;
     top: 50%;
     bottom: unset;
     left: 0;
