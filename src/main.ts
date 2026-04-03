@@ -92,20 +92,12 @@ function renderSchedule(): void {
 
 function renderSaveDateCalendar(): void {
   const grid = document.getElementById('calendar-grid');
-  const monthLabel = document.getElementById('save-date-month');
-  if (!grid || !monthLabel) return;
+  if (!grid) return;
 
   const date = WEDDING_CONFIG.date;
   const year = date.getFullYear();
   const month = date.getMonth(); // 0-based
   const highlightDay = date.getDate();
-
-  // Month label in Russian
-  const monthNames = [
-    'январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
-    'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь',
-  ];
-  monthLabel.textContent = monthNames[month];
 
   // Weekday headers (Mon-first)
   const weekdays = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
