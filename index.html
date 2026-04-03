@@ -961,6 +961,25 @@
       background: var(--swatch);
       flex-shrink: 0;
     }
+
+  @media (min-width: 1024px) {
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero-photo {
+      border-radius: 0 0 10% 10%;
+    }
+    .hero-photo-wrap::after {
+      border-radius: 0 0 10% 10%;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+    }
+
+  }
   </style>
 </head>
 <body>
