@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist-test",
+    "lib": ["ES2020"],
+    "types": ["node"]
+  },
+  "include": ["src/pluralize.ts", "src/pluralize.test.ts"],
+  "exclude": ["node_modules"]
+}

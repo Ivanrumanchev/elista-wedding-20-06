@@ -1,14 +1,17 @@
 {
   "name": "wedding-invitation",
+  "type": "module",
   "version": "1.0.0",
   "description": "Свадебное приглашение — лендинг страница",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "serve": "npx serve ."
+    "serve": "npx serve .",
+    "test": "tsc -p tsconfig.test.json && node --test dist-test/pluralize.test.js"
   },
   "devDependencies": {
     "@playwright/mcp": "^0.0.68",
+    "@types/node": "^25.5.2",
     "typescript": "^5.4.0"
   }
 }

@@ -1,12 +1,13 @@
 import type { WeddingConfig } from './types.js';
 import { startCountdown, formatCountdownUnit } from './countdown.js';
+import { pluralize } from './pluralize.js';
 
 // ─── Конфигурация свадьбы ────────────────────────────────────────────────────
 
 const WEDDING_CONFIG: WeddingConfig = {
   bride: 'Яна',
   groom: 'Иван',
-  date: new Date('2026-06-10T09:15:00'),
+  date: new Date('2026-06-10T09:40:00'),
   venue: {
     name: 'Русская рыбалка в Комарово',
     address: 'пос. Комарово, Приморское шоссе, 452',
@@ -25,21 +26,25 @@ const WEDDING_CONFIG: WeddingConfig = {
 // ─── Обратный отсчёт ─────────────────────────────────────────────────────────
 
 function initCountdown(): void {
-  const elements = {
-    days: document.getElementById('countdown-days'),
-    hours: document.getElementById('countdown-hours'),
-    minutes: document.getElementById('countdown-minutes'),
-    seconds: document.getElementById('countdown-seconds'),
-  } as const;
+  const days = document.getElementById('countdown-days');
+  const hours = document.getElementById('countdown-hours');
+  const minutes = document.getElementById('countdown-minutes');
+  const seconds = document.getElementById('countdown-seconds');
+  const daysLabel = document.getElementById('countdown-days-label');
+  const hoursLabel = document.getElementById('countdown-hours-label');
+  const minutesLabel = document.getElementById('countdown-minutes-label');
+  const secondsLabel = document.getElementById('countdown-seconds-label');
+  if (!days || !hours || !minutes || !seconds) return;
 
-  const allPresent = Object.values(elements).every((el) => el !== null);
-  if (!allPresent) return;
-
-  startCountdown(WEDDING_CONFIG.date, ({ days, hours, minutes, seconds }) => {
-    (elements.days as HTMLElement).textContent = formatCountdownUnit(days);
-    (elements.hours as HTMLElement).textContent = formatCountdownUnit(hours);
-    (elements.minutes as HTMLElement).textContent = formatCountdownUnit(minutes);
-    (elements.seconds as HTMLElement).textContent = formatCountdownUnit(seconds);
+  startCountdown(WEDDING_CONFIG.date, (result) => {
+    days.textContent = formatCountdownUnit(result.days);
+    hours.textContent = formatCountdownUnit(result.hours);
+    minutes.textContent = formatCountdownUnit(result.minutes);
+    seconds.textContent = formatCountdownUnit(result.seconds);
+    if (daysLabel)    daysLabel.textContent    = pluralize(result.days,    'день',   'дня',    'дней');
+    if (hoursLabel)   hoursLabel.textContent   = pluralize(result.hours,   'час',    'часа',   'часов');
+    if (minutesLabel) minutesLabel.textContent = pluralize(result.minutes, 'минута', 'минуты', 'минут');
+    if (secondsLabel) secondsLabel.textContent = pluralize(result.seconds, 'секунда','секунды','секунд');
   });
 }
 
@@ -49,43 +54,16 @@ function renderSchedule(): void {
   const container = document.getElementById('schedule-list');
   if (!container) return;
 
-  const fragment = document.createDocumentFragment();
-
-  WEDDING_CONFIG.schedule.forEach(({ time, title, iconUrl }) => {
-    const item = document.createElement('div');
-    item.className = 'timeline-item';
-
-    const img = document.createElement('img');
-    img.src = iconUrl;
-    img.alt = '';
-    const iconDiv = document.createElement('div');
-    iconDiv.className = 'timeline-icon';
-    iconDiv.appendChild(img);
-
-    const dot = document.createElement('div');
-    dot.className = 'timeline-dot';
-    const spine = document.createElement('div');
-    spine.className = 'timeline-spine';
-    spine.appendChild(dot);
-
-    const timeSpan = document.createElement('span');
-    timeSpan.className = 'timeline-time';
-    timeSpan.textContent = time;
-    const titleSpan = document.createElement('span');
-    titleSpan.className = 'timeline-title';
-    titleSpan.textContent = title;
-    const content = document.createElement('div');
-    content.className = 'timeline-content';
-    content.appendChild(timeSpan);
-    content.appendChild(titleSpan);
-
-    item.appendChild(iconDiv);
-    item.appendChild(spine);
-    item.appendChild(content);
-    fragment.appendChild(item);
-  });
-
-  container.appendChild(fragment);
+  container.innerHTML = WEDDING_CONFIG.schedule.map(({ time, title, iconUrl }) => `
+    <div class="timeline-item">
+      <div class="timeline-icon"><img src="${iconUrl}" alt="" width="60" height="60" loading="lazy" decoding="async"></div>
+      <div class="timeline-spine"><div class="timeline-dot"></div></div>
+      <div class="timeline-content">
+        <span class="timeline-time">${time}</span>
+        <span class="timeline-title">${title}</span>
+      </div>
+    </div>
+  `).join('');
 }
 
 // ─── Календарь Save the Date ──────────────────────────────────────────────────
@@ -119,7 +97,6 @@ function renderSaveDateCalendar(): void {
     const empty = document.createElement('div');
     empty.className = 'calendar-day calendar-day--empty';
     empty.setAttribute('aria-hidden', 'true');
-    empty.textContent = '';
     fragment.appendChild(empty);
   }
 

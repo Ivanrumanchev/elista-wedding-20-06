@@ -7,7 +7,7 @@
   <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день нашей жизни" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Pacifico&display=swap" rel="stylesheet" />
   <style>
 
     /* ── Сброс и базовые стили ────────────────────────────────────── */
@@ -710,6 +710,8 @@
       height: 28px;
     }
 
+    .desktop-br { display: none; }
+
     @media (prefers-reduced-motion: reduce) {
       .calendar-heart-ripple--1,
       .calendar-heart-ripple--2 {
@@ -886,6 +888,12 @@
       pointer-events: none;
       z-index: 2;
     }
+    .finale-section .heart-decor {
+      top: 29%;
+      left: 48.5%;
+      width: 30px;
+      height: 30px;
+    }
 
     .calendar-wrap {
       position: relative;
@@ -981,8 +989,15 @@
       max-width: 900px;
       left: 50%;
       right: auto;
-      transform: translateX(-50%);
+      transform: translate(-50%, -80px);
       width: 100%;
+    }
+    .hero-eyebrow {
+      font-size: clamp(5rem, 14vw, 10rem);
+      top: -120px;
+    }
+    .hero-names {
+      font-size: 5.5rem;
     }
 
   /* ── Photo Strip ───────────────────────────────────────────── */
@@ -991,6 +1006,15 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 10%;
+  }
+  .photo-strip-text {
+    text-align: left;
+    padding: 1rem 2rem 1rem calc(30px + 6px + 24px);
+  }
+  .desktop-br { display: inline; }
+  .photo-strip-text::after {
+    left: 30px;
+    right: auto;
   }
 
   /* ── Countdown ─────────────────────────────────────────────── */
@@ -1089,7 +1113,14 @@
     margin-right: auto;
   }
   .venue-photo-wrap img {
-    width: 35%;
+    width: 65%;
+  }
+  .venue-address {
+    font-size: 1.5rem;
+  }
+  .venue-address svg {
+    width: 28px;
+    height: 28px;
   }
 
   /* ── Details ───────────────────────────────────────────────── */
@@ -1097,6 +1128,10 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 4rem;
+  }
+  .details-section::after {
+    display: none;
   }
 
   /* ── Dress Code ─────────────────────────────────────────────── */
@@ -1116,12 +1151,17 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10%;
-    overflow: hidden;
+    clip-path: inset(0 round 80px 80px 0 0);
+  }
+  .finale-section .heart-decor {
+    top: 20%;
+    left: 49.5%;
+    width: 45px;
+    height: 45px;
   }
   .finale-text {
     font-size: clamp(3rem, 5vw, 7rem);
-    margin-top: -180px;
+    margin-top: 160px;
   }
 
   }
@@ -1133,7 +1173,10 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-photo-wrap">
-      <img class="hero-photo" src="photo1.jpg" alt="" />
+      <picture>
+        <source media="(min-width: 1024px)" srcset="photo3.jpg">
+        <img class="hero-photo" src="photo1.jpg" alt="" fetchpriority="high" />
+      </picture>
     </div>
     <div class="hero-content">
       <p class="hero-eyebrow animate-on-scroll">10/06</p>
@@ -1151,15 +1194,18 @@
     <div class="calendar-wrap">
       <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
     </div>
-    <img class="heart-decor" style="top:-45px;right:25px;width:80px;height:80px;" src="heart-final.png" alt="">
+    <img class="heart-decor" style="top:-45px;right:25px;width:80px;height:80px;" src="heart-final.png" alt="" loading="lazy">
   </section>
 
   <!-- Фото полоса -->
   <div class="photo-strip">
-    <img src="photo2.jpg" alt="" />
-    <div class="photo-strip-text" style="padding-left:16px;">
+    <picture>
+      <source media="(min-width: 1024px)" srcset="photo6.png">
+      <img src="photo2.jpg" alt="" loading="lazy" />
+    </picture>
+    <div class="photo-strip-text">
       <p>Этим летом состоится важное<br>событие — наша свадьба.</p>
-      <p>Мы приглашаем вас разделить с&nbsp;нами этот радостный день, в&nbsp;который<br><span style="font-style:italic;font-size:1.25em;">мы станем семьёй!</span></p>
+      <p>Мы приглашаем вас разделить с&nbsp;нами<br class="desktop-br"> этот радостный день, в&nbsp;который<br><span style="font-style:italic;font-size:1.25em;">мы станем семьёй!</span></p>
     </div>
   </div>
 
@@ -1168,8 +1214,8 @@
     <h2 class="section-title animate-on-scroll">Место проведения</h2>
 
     <div class="venue-photo-wrap">
-      <img src="place1.jpg" alt="" />
-      <img src="place2.jpg" alt="" />
+      <img src="place1.jpg" alt="" loading="lazy" />
+      <img src="place2.jpg" alt="" loading="lazy" />
     </div>
 
     <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#071739" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://yandex.com/maps/-/CPbfuP82" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">«Русская рыбалка»<br>Приморское ш. 452А, Комарово</a></p>
@@ -1178,7 +1224,7 @@
 
   <!-- Программа -->
   <section class="schedule-section section--sage" id="schedule">
-    <img class="heart-decor" style="top:-45px;left:25px;width:80px;height:80px;" src="heart-final.png" alt="">
+    <img class="heart-decor" style="top:-45px;left:25px;width:80px;height:80px;" src="heart-final.png" alt="" loading="lazy">
     <h2 class="section-title animate-on-scroll">Программа</h2>
 
     <div class="schedule-list animate-on-scroll" id="schedule-list">
@@ -1207,27 +1253,27 @@
 
   <!-- Обратный отсчёт -->
   <div class="countdown-wrapper">
-  <img class="countdown-bottom-photo" src="photo4.jpg" alt="" />
+  <img class="countdown-bottom-photo" src="photo4.jpg" alt="" loading="lazy" />
   <section class="countdown-section" id="countdown">
     <div class="countdown-grid animate-on-scroll">
       <div class="countdown-item">
         <span class="countdown-number" id="countdown-days">00</span>
-        <span class="countdown-label">дней</span>
+        <span class="countdown-label" id="countdown-days-label">дней</span>
       </div>
       <span class="countdown-separator">:</span>
       <div class="countdown-item">
         <span class="countdown-number" id="countdown-hours">00</span>
-        <span class="countdown-label">часов</span>
+        <span class="countdown-label" id="countdown-hours-label">часов</span>
       </div>
       <span class="countdown-separator">:</span>
       <div class="countdown-item">
         <span class="countdown-number" id="countdown-minutes">00</span>
-        <span class="countdown-label">минут</span>
+        <span class="countdown-label" id="countdown-minutes-label">минут</span>
       </div>
       <span class="countdown-separator">:</span>
       <div class="countdown-item">
         <span class="countdown-number" id="countdown-seconds">00</span>
-        <span class="countdown-label">секунд</span>
+        <span class="countdown-label" id="countdown-seconds-label">секунд</span>
       </div>
     </div>
   </section>
@@ -1254,9 +1300,9 @@
 
   <!-- Финальный блок + футер -->
   <section class="finale-section">
-    <img class="finale-photo" src="photo5.jpg" alt="" />
+    <img class="finale-photo" src="photo5.jpg" alt="" loading="lazy" />
     <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
-    <img class="heart-decor" style="top:29%;left:48.5%;width:30px;height:30px;" src="heart-final.png" alt="">
+    <img class="heart-decor" src="heart-final.png" alt="" loading="lazy">
   </section>
 
   <script type="module" src="dist/main.js"></script>
