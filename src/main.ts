@@ -7,20 +7,18 @@ import { pluralize } from './pluralize.js';
 const WEDDING_CONFIG: WeddingConfig = {
   bride: 'Яна',
   groom: 'Иван',
-  date: new Date('2026-06-10T09:40:00'),
+  date: new Date('2026-06-20T17:00:00'),
   venue: {
-    name: 'Русская рыбалка в Комарово',
-    address: 'пос. Комарово, Приморское шоссе, 452',
-    mapUrl: 'https://maps.google.com/maps?q=Русская+рыбалка+Комарово',
+    name: 'Eco park by Marco Polo',
+    address: 'Сити-Чесс, город Элиста',
+    mapUrl: '',
   },
   schedule: [
-    { time: '9:40',  title: 'Регистрация брака',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/706/706455.png' },
-    { time: '15:00', title: 'Сбор гостей',                             iconUrl: 'https://cdn-icons-png.flaticon.com/128/2776/2776074.png' },
-    { time: '16:00', title: 'Церемония и банкет',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/3314/3314457.png' },
+    { time: '16:00', title: 'Сбор гостей',                             iconUrl: 'https://cdn-icons-png.flaticon.com/128/2776/2776074.png' },
+    { time: '17:00', title: 'Церемония и банкет',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/3314/3314457.png' },
     { time: '22:00', title: 'Торт и танцы',                            iconUrl: 'https://cdn-icons-png.flaticon.com/128/4214/4214366.png' },
-    { time: '23:00', title: 'Завершение банкета, трансфер до метро',   iconUrl: 'https://cdn-icons-png.flaticon.com/128/4274/4274245.png' },
+    { time: '23:00', title: 'Завершение банкета',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/4274/4274245.png' },
   ],
-  hashtag: '#ИванИЯна2026',
 } as const;
 
 // ─── Обратный отсчёт ─────────────────────────────────────────────────────────
@@ -112,13 +110,13 @@ function renderSaveDateCalendar(): void {
       cell.innerHTML = `
         ${d}
         <svg class="calendar-heart" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="${heartPath}" stroke="rgba(255,255,255,0.9)" stroke-width="3" fill="rgba(255,255,255,0.12)"/>
+          <path d="${heartPath}" stroke="rgba(114,0,19,0.9)" stroke-width="3" fill="rgba(114,0,19,0.12)"/>
         </svg>
         <svg class="calendar-heart-ripple calendar-heart-ripple--1" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="${heartPath}" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"/>
+          <path d="${heartPath}" stroke="rgba(114,0,19,0.7)" stroke-width="2" fill="none"/>
         </svg>
         <svg class="calendar-heart-ripple calendar-heart-ripple--2" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="${heartPath}" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+          <path d="${heartPath}" stroke="rgba(114,0,19,0.5)" stroke-width="2" fill="none"/>
         </svg>
       `;
     } else {
@@ -157,12 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const groomEl = document.querySelectorAll('[data-groom]');
   const brideEl = document.querySelectorAll('[data-bride]');
   const venueEl = document.querySelectorAll('[data-venue]');
-  const hashtagEl = document.querySelectorAll('[data-hashtag]');
 
   groomEl.forEach((el) => (el.textContent = WEDDING_CONFIG.groom));
   brideEl.forEach((el) => (el.textContent = WEDDING_CONFIG.bride));
   venueEl.forEach((el) => (el.textContent = WEDDING_CONFIG.venue.name));
-  hashtagEl.forEach((el) => (el.textContent = WEDDING_CONFIG.hashtag));
 
   const mapLink = document.getElementById('venue-map-link') as HTMLAnchorElement | null;
   if (mapLink) mapLink.href = WEDDING_CONFIG.venue.mapUrl;

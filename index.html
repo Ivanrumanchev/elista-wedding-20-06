@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Свадьба Ивана и Яны — 10 июня 2026</title>
+  <title>Свадьба Ивана и Яны — 20 июня 2026</title>
   <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день нашей жизни" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,12 +14,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --sage:        #4B6382;
+      --sage:        #720013;
       --white:       #ffffff;           /* backgrounds */
-      --off-white:   #f5f5f3;
-      --text:        #071739;
-      --text-muted:  #071739;
-      --text-on-sage: #ffffff;           /* text colour on sage bg — may diverge */
+      --text:        #720013;
+      --text-muted:  #720013;
 
       --font-sans:   'Exo 2', sans-serif;
       --font-serif:  var(--font-sans);
@@ -53,9 +51,6 @@
       letter-spacing: 0.3em;
     }
 
-    /* На зелёном фоне заголовок белый */
-    .section--sage .section-title { color: var(--text-on-sage); }
-
     .section-subtitle {
       font-family: var(--font-sans);
       font-size: 0.8rem;
@@ -66,15 +61,12 @@
       margin-bottom: 3rem;
       display: block;
     }
-    .section--sage .section-subtitle { color: var(--white); }
-
     .sage-line {
       width: 40px;
       height: 2px;
       background: var(--sage);
       margin: 1rem auto 2rem;
     }
-    .section--sage .sage-line { background: var(--white); }
 
     /* ── Анимации ─────────────────────────────────────────────────── */
     .animate-on-scroll {
@@ -102,7 +94,6 @@
       height: auto;
       position: relative;
       z-index: 0;
-      border-radius: 0 0 33% 33%;
     }
 
     .hero-content {
@@ -127,7 +118,6 @@
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.38);
-      border-radius: 0 0 33% 33%;
       pointer-events: none;
     }
 
@@ -274,12 +264,12 @@
     /* ── Расписание ───────────────────────────────────────────────── */
     .schedule-section {
       padding: 2rem clamp(1.5rem, 8vw, 6rem);
-      background: #a4b5c4;
+      background: #faebb5;
       border-radius: 50px;
       overflow: visible;
       position: relative;
       z-index: 2;
-      margin: 0 15px;
+      margin: 0 15px 10px;
     }
 
     .schedule-section .section-title { font-family: var(--font-sans); }
@@ -311,7 +301,7 @@
       width: 60px;
       height: 60px;
       flex-shrink: 0;
-      filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1) brightness(0.2) sepia(1) saturate(5) hue-rotate(315deg);
     }
 
     .timeline-spine {
@@ -329,7 +319,7 @@
       left: 50%;
       transform: translateX(-50%);
       width: 2px;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(114, 0, 19, 0.3);
     }
 
     .timeline-dot {
@@ -338,7 +328,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: var(--white);
+      background: var(--sage);
       flex-shrink: 0;
       margin-top: 24px;
     }
@@ -357,7 +347,7 @@
       font-family: var(--font-serif);
       font-size: 1.6rem;
       font-weight: 300;
-      color: white;
+      color: var(--sage);
       line-height: 1;
     }
 
@@ -365,7 +355,7 @@
       font-family: var(--font-sans);
       font-size: 1.1em;
       font-weight: 400;
-      color: white;
+      color: var(--sage);
       letter-spacing: 0.03em;
       line-height: 1.4;
       opacity: 0.9;
@@ -383,10 +373,7 @@
       overflow: visible;
     }
     .venue-section::after { display: none; }
-    .venue-section .section-title { color: var(--text); }
     .venue-section .venue-name { font-family: var(--font-sans); }
-    .venue-section .section-subtitle { color: var(--white); }
-    .venue-section .sage-line { background: var(--white); }
 
     .venue-photo-wrap {
       position: relative;
@@ -399,21 +386,26 @@
       padding: 20px 0 20px;
     }
 
-    .venue-photo-wrap img {
+    .venue-photo-wrap picture {
       display: block;
       width: 50%;
       flex-shrink: 0;
+    }
+
+    .venue-photo-wrap img {
+      display: block;
+      width: 100%;
       height: auto;
       object-fit: cover;
     }
 
-    .venue-photo-wrap img:first-child {
+    .venue-photo-wrap picture:first-child {
       transform: rotate(-10deg);
       transform-origin: center center;
       z-index: 1;
     }
 
-    .venue-photo-wrap img:last-child {
+    .venue-photo-wrap picture:last-child {
       transform: rotate(12deg) translateY(15px);
       transform-origin: center center;
       z-index: 2;
@@ -478,15 +470,6 @@
       color: var(--white);
     }
 
-    /* Кнопка на зелёном фоне */
-    .section--sage .btn {
-      border-color: var(--white);
-      color: var(--white);
-    }
-    .section--sage .btn:hover {
-      background: var(--white);
-      color: var(--sage);
-    }
 
     /* ── Details ──────────────────────────────────────────────────── */
     .details-section {
@@ -541,7 +524,7 @@
     /* ── Футер ────────────────────────────────────────────────────── */
     .footer {
       padding: 3rem 2rem;
-      background: var(--sage);
+      background: transparent;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -553,7 +536,7 @@
       font-family: var(--font-script);
       font-style: italic;
       font-size: 2rem;
-      color: var(--white);
+      color: var(--sage);
       font-weight: 300;
     }
 
@@ -561,19 +544,19 @@
       font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--sage);
     }
 
     .footer-hashtag {
       font-size: 0.75rem;
-      color: var(--white);
+      color: var(--sage);
       letter-spacing: 0.1em;
     }
 
     /* ── Save the Date (Календарь) ──────────────────────────── */
     .save-date-section {
       padding: 2rem;
-      background: #a4b5c4;
+      background: #faebb5;
       text-align: center;
       position: relative;
       border-radius: 10%;
@@ -585,7 +568,7 @@
       font-family: var(--font-sans);
       font-size: clamp(2.5rem, 10vw, 5rem);
       font-weight: 700;
-      color: var(--white);
+      color: var(--sage);
       line-height: 1;
       letter-spacing: 0.25em;
       text-transform: uppercase;
@@ -596,7 +579,7 @@
       font-family: var(--font-sans);
       font-size: 0.75rem;
       font-weight: 500;
-      color: var(--white);
+      color: var(--sage);
       letter-spacing: 0.3em;
       text-transform: uppercase;
       display: block;
@@ -617,7 +600,7 @@
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--sage);
       padding: 0.5rem 0;
       text-align: center;
     }
@@ -626,7 +609,7 @@
       font-family: var(--font-serif);
       font-size: clamp(1.1rem, 3vw, 1.5rem);
       font-weight: 300;
-      color: var(--white);
+      color: var(--sage);
       padding: 0.6rem 0;
       text-align: center;
       position: relative;
@@ -639,7 +622,7 @@
 
     .calendar-day--highlighted {
       font-weight: 600;
-      color: var(--white);
+      color: var(--sage);
       isolation: isolate;
     }
 
@@ -901,74 +884,7 @@
       margin: 0 auto;
     }
 
-    /* ── Dress Code ───────────────────────────────────────────────── */
-    .dresscode-text {
-      position: relative;
-      text-align: left;
-      padding: 1rem 2rem 1rem calc(15px + 6px + 15px);
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
-    .dresscode-text p {
-      font-family: var(--font-sans);
-      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-      color: var(--text);
-      line-height: 1.5;
-      margin: 0;
-    }
-    .dresscode-text::after {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 1rem;
-      bottom: 1rem;
-      width: 6px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='20'%3E%3Cpath d='M3,0 Q6,5 3,10 Q0,15 3,20' fill='none' stroke='%23666660' stroke-width='2'/%3E%3C/svg%3E");
-      background-repeat: repeat-y;
-      background-size: 6px 20px;
-    }
-    .dresscode-section {
-      padding: var(--section-pad) 2rem;
-      background: var(--white);
-      text-align: center;
-      position: relative;
-      overflow: visible;
-      z-index: 5;
-    }
-    .dresscode-wave {
-      position: absolute;
-      bottom: -59px;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      display: block;
-      z-index: 3;
-    }
-    .dresscode-title {
-      font-family: var(--font-sans);
-      font-size: clamp(2rem, 8vw, 4rem);
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 0;
-    }
-    .dresscode-swatches {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: nowrap;
-    }
-    .dresscode-swatch + .dresscode-swatch {
-      margin-left: clamp(-20px, -2.9vw, -10px);
-    }
-    .dresscode-swatch {
-      width: clamp(60px, 12vw, 140px);
-      height: clamp(60px, 12vw, 140px);
-      border-radius: 50%;
-      background: var(--swatch);
-      flex-shrink: 0;
-    }
+
 
   @media (min-width: 1024px) {
 
@@ -978,12 +894,6 @@
       margin-left: auto;
       margin-right: auto;
       overflow: hidden;
-    }
-    .hero-photo {
-      border-radius: 0 0 10% 10%;
-    }
-    .hero-photo-wrap::after {
-      border-radius: 0 0 10% 10%;
     }
     .hero-content {
       max-width: 900px;
@@ -1112,7 +1022,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .venue-photo-wrap img {
+  .venue-photo-wrap picture {
     width: 65%;
   }
   .venue-address {
@@ -1132,18 +1042,6 @@
   }
   .details-section::after {
     display: none;
-  }
-
-  /* ── Dress Code ─────────────────────────────────────────────── */
-  .dresscode-section {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .dresscode-text {
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   /* ── Finale ─────────────────────────────────────────────────── */
@@ -1174,12 +1072,14 @@
   <section class="hero">
     <div class="hero-photo-wrap">
       <picture>
-        <source media="(min-width: 1024px)" srcset="photo3.jpg">
-        <img class="hero-photo" src="photo1.jpg" alt="" fetchpriority="high" />
+        <source media="(min-width: 1024px)" srcset="photo3-desktop.webp" type="image/webp">
+        <source media="(min-width: 1024px)" srcset="photo3-desktop.jpg">
+        <source srcset="photo1-mobile.webp" type="image/webp">
+        <img class="hero-photo" src="photo1-mobile.jpg" alt="" fetchpriority="high" />
       </picture>
     </div>
     <div class="hero-content">
-      <p class="hero-eyebrow animate-on-scroll">10/06</p>
+      <p class="hero-eyebrow animate-on-scroll">20/06</p>
       <h1 class="hero-names animate-on-scroll">
         <span data-groom>Иван</span>
         <span class="hero-ampersand">&amp;</span>
@@ -1194,14 +1094,15 @@
     <div class="calendar-wrap">
       <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
     </div>
-    <img class="heart-decor" style="top:-45px;right:25px;width:80px;height:80px;" src="heart-final.png" alt="" loading="lazy">
   </section>
 
   <!-- Фото полоса -->
   <div class="photo-strip">
     <picture>
+      <source media="(min-width: 1024px)" srcset="photo6.webp" type="image/webp">
       <source media="(min-width: 1024px)" srcset="photo6.png">
-      <img src="photo2.jpg" alt="" loading="lazy" />
+      <source srcset="photo2.webp" type="image/webp">
+      <img src="photo2.jpg" alt="" loading="lazy" decoding="async" />
     </picture>
     <div class="photo-strip-text">
       <p>Этим летом состоится важное<br>событие — наша свадьба.</p>
@@ -1214,17 +1115,22 @@
     <h2 class="section-title animate-on-scroll">Место проведения</h2>
 
     <div class="venue-photo-wrap">
-      <img src="place1.jpg" alt="" loading="lazy" />
-      <img src="place2.jpg" alt="" loading="lazy" />
+      <picture>
+        <source srcset="place1.webp" type="image/webp">
+        <img src="place1.jpg" alt="" loading="lazy" decoding="async" />
+      </picture>
+      <picture>
+        <source srcset="place2.webp" type="image/webp">
+        <img src="place2.jpg" alt="" loading="lazy" decoding="async" />
+      </picture>
     </div>
 
-    <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#071739" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://yandex.com/maps/-/CPbfuP82" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">«Русская рыбалка»<br>Приморское ш. 452А, Комарово</a></p>
+    <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#720013" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Eco park by Marco Polo</p>
 
   </section>
 
   <!-- Программа -->
   <section class="schedule-section section--sage" id="schedule">
-    <img class="heart-decor" style="top:-45px;left:25px;width:80px;height:80px;" src="heart-final.png" alt="" loading="lazy">
     <h2 class="section-title animate-on-scroll">Программа</h2>
 
     <div class="schedule-list animate-on-scroll" id="schedule-list">
@@ -1232,28 +1138,18 @@
     </div>
   </section>
 
-  <!-- Dress Code -->
-  <section class="dresscode-section" id="dresscode">
-    <h2 class="dresscode-title animate-on-scroll">DRESS CODE</h2>
-    <div class="dresscode-text animate-on-scroll">
-      <p>Мы постарались сделать праздник красивым и&nbsp;уютным, и&nbsp;будем рады, если ваши наряды будут гармонировать с&nbsp;общей цветовой гаммой</p>
-    </div>
-    <div class="dresscode-swatches animate-on-scroll">
-      <div class="dresscode-swatch" style="--swatch:#071739"></div>
-      <div class="dresscode-swatch" style="--swatch:#4d72a3"></div>
-      <div class="dresscode-swatch" style="--swatch:#A4B5C4"></div>
-      <div class="dresscode-swatch" style="--swatch:#CDD5DB"></div>
-      <div class="dresscode-swatch" style="--swatch:#A68868"></div>
-      <div class="dresscode-swatch" style="--swatch:#E3C39D"></div>
-    </div>
-    <svg class="dresscode-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.0,30.0 L20.0,33.3 L40.0,36.5 L60.0,39.6 L80.0,42.7 L100.0,45.6 L120.0,48.3 L140.0,50.7 L160.0,53.0 L180.0,54.9 L200.0,56.6 L220.0,58.0 L240.0,59.0 L260.0,59.7 L280.0,60.0 L300.0,59.9 L320.0,59.5 L340.0,58.8 L360.0,57.7 L380.0,56.3 L400.0,54.6 L420.0,52.6 L440.0,50.3 L460.0,47.7 L480.0,45.0 L500.0,42.1 L520.0,39.0 L540.0,35.9 L560.0,32.6 L580.0,29.3 L600.0,26.1 L620.0,22.9 L640.0,19.7 L660.0,16.7 L680.0,13.9 L700.0,11.2 L720.0,8.8 L740.0,6.6 L760.0,4.7 L780.0,3.1 L800.0,1.8 L820.0,0.9 L840.0,0.3 L860.0,0.0 L880.0,0.1 L900.0,0.6 L920.0,1.4 L940.0,2.5 L960.0,4.0 L980.0,5.8 L1000.0,7.9 L1020.0,10.2 L1040.0,12.8 L1060.0,15.6 L1080.0,18.5 L1100.0,21.6 L1120.0,24.8 L1140.0,28.0 L1160.0,31.3 L1180.0,34.6 L1200.0,37.8 L1220.0,40.9 L1240.0,43.9 L1260.0,46.7 L1280.0,49.3 L1300.0,51.7 L1320.0,53.8 L1340.0,55.6 L1360.0,57.2 L1380.0,58.4 L1400.0,59.3 L1420.0,59.8 L1440.0,60.0 L1440,0 L0,0 Z" fill="white"/>
-    </svg>
-  </section>
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:60px;position:relative;z-index:10;margin-bottom:-59px;">
+    <path d="M0.0,30.0 L20.0,33.3 L40.0,36.5 L60.0,39.6 L80.0,42.7 L100.0,45.6 L120.0,48.3 L140.0,50.7 L160.0,53.0 L180.0,54.9 L200.0,56.6 L220.0,58.0 L240.0,59.0 L260.0,59.7 L280.0,60.0 L300.0,59.9 L320.0,59.5 L340.0,58.8 L360.0,57.7 L380.0,56.3 L400.0,54.6 L420.0,52.6 L440.0,50.3 L460.0,47.7 L480.0,45.0 L500.0,42.1 L520.0,39.0 L540.0,35.9 L560.0,32.6 L580.0,29.3 L600.0,26.1 L620.0,22.9 L640.0,19.7 L660.0,16.7 L680.0,13.9 L700.0,11.2 L720.0,8.8 L740.0,6.6 L760.0,4.7 L780.0,3.1 L800.0,1.8 L820.0,0.9 L840.0,0.3 L860.0,0.0 L880.0,0.1 L900.0,0.6 L920.0,1.4 L940.0,2.5 L960.0,4.0 L980.0,5.8 L1000.0,7.9 L1020.0,10.2 L1040.0,12.8 L1060.0,15.6 L1080.0,18.5 L1100.0,21.6 L1120.0,24.8 L1140.0,28.0 L1160.0,31.3 L1180.0,34.6 L1200.0,37.8 L1220.0,40.9 L1240.0,43.9 L1260.0,46.7 L1280.0,49.3 L1300.0,51.7 L1320.0,53.8 L1340.0,55.6 L1360.0,57.2 L1380.0,58.4 L1400.0,59.3 L1420.0,59.8 L1440.0,60.0 L1440,0 L0,0 Z" fill="white"/>
+  </svg>
 
   <!-- Обратный отсчёт -->
   <div class="countdown-wrapper">
-  <img class="countdown-bottom-photo" src="photo4.jpg" alt="" loading="lazy" />
+  <picture>
+    <source media="(min-width: 1024px)" srcset="photo4-desktop.webp" type="image/webp">
+    <source media="(min-width: 1024px)" srcset="photo4-desktop.jpg">
+    <source srcset="photo4-mobile.webp" type="image/webp">
+    <img class="countdown-bottom-photo" src="photo4-mobile.jpg" alt="" loading="lazy" decoding="async" />
+  </picture>
   <section class="countdown-section" id="countdown">
     <div class="countdown-grid animate-on-scroll">
       <div class="countdown-item">
@@ -1285,24 +1181,28 @@
     <h2 class="section-title animate-on-scroll">Детали</h2>
     <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
-      Торжество будет проходить в&nbsp;Комарово. Добраться до&nbsp;места можно на&nbsp;электричке от&nbsp;Удельной или Финляндского вокзала, а также на&nbsp;автобусах № 211 и № 680.
-    </p>
-    <div class="sage-line animate-on-scroll"></div>
-    <p class="rsvp-intro animate-on-scroll">
       Пожалуйста, воздержитесь от&nbsp;покупки цветов, поскольку после&nbsp;свадьбы мы уезжаем и долго наслаждаться их красотой не сможем.
     </p>
     <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
-      Ресторан находится на&nbsp;берегу Финского залива. При&nbsp;желании и хорошей погоде можно будет погулять по&nbsp;пляжу или даже искупаться.
+      У нас нет определенного дресс-кода, однако мы очень просим Вас оставить белый цвет невесте.
     </p>
 
   </section>
 
   <!-- Финальный блок + футер -->
   <section class="finale-section">
-    <img class="finale-photo" src="photo5.jpg" alt="" loading="lazy" />
+    <picture>
+      <source media="(min-width: 1024px)" srcset="photo5-desktop.webp" type="image/webp">
+      <source media="(min-width: 1024px)" srcset="photo5-desktop.jpg">
+      <source srcset="photo5-mobile.webp" type="image/webp">
+      <img class="finale-photo" src="photo5-mobile.jpg" alt="" loading="lazy" decoding="async" />
+    </picture>
     <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
-    <img class="heart-decor" src="heart-final.png" alt="" loading="lazy">
+    <picture>
+      <source srcset="heart-final.webp" type="image/webp">
+      <img class="heart-decor" src="heart-final.png" alt="" loading="lazy" decoding="async">
+    </picture>
   </section>
 
   <script type="module" src="dist/main.js"></script>

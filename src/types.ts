@@ -4,7 +4,6 @@ export interface WeddingConfig {
   readonly date: Date;
   readonly venue: WeddingVenue;
   readonly schedule: readonly ScheduleItem[];
-  readonly hashtag: string;
 }
 
 export interface WeddingVenue {
