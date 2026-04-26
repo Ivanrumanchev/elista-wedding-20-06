@@ -14,10 +14,10 @@ const WEDDING_CONFIG: WeddingConfig = {
     mapUrl: '',
   },
   schedule: [
-    { time: '16:00', title: 'Сбор гостей',                             iconUrl: 'https://cdn-icons-png.flaticon.com/128/2776/2776074.png' },
-    { time: '17:00', title: 'Церемония и банкет',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/3314/3314457.png' },
-    { time: '22:00', title: 'Торт и танцы',                            iconUrl: 'https://cdn-icons-png.flaticon.com/128/4214/4214366.png' },
-    { time: '23:00', title: 'Завершение банкета',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/4274/4274245.png' },
+    { time: '17:00', title: 'Сбор гостей',                             iconUrl: 'https://cdn-icons-png.flaticon.com/128/2776/2776074.png' },
+    { time: '18:00', title: 'Церемония бракосочетания',                iconUrl: 'https://cdn-icons-png.flaticon.com/128/706/706455.png' },
+    { time: '18:30', title: 'Банкет',                                  iconUrl: 'https://cdn-icons-png.flaticon.com/128/3314/3314457.png' },
+    { time: '00:00', title: 'Завершение банкета',                      iconUrl: 'https://cdn-icons-png.flaticon.com/128/4274/4274245.png' },
   ],
 } as const;
 

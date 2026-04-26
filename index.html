@@ -679,6 +679,28 @@
       :root { --section-pad: 3rem; }
     }
 
+    /* ── Декоративные тюльпаны ───────────────────────────────────── */
+    .tulip-decor {
+      position: relative;
+      height: 0;
+      overflow: visible;
+      z-index: 20;
+      pointer-events: none;
+    }
+    .tulip-decor img {
+      position: absolute;
+      bottom: 0;
+      width: clamp(30px, 8.7vw, 53px);
+    }
+    .tulip-decor--left img {
+      left: 59px;
+      bottom: -27px;
+    }
+    .tulip-decor--right img {
+      right: 40px;
+      bottom: -66px;
+    }
+
     /* ── Сердечки-разделители ─────────────────────────────────────── */
     .section-heart {
       display: flex;
@@ -1062,6 +1084,10 @@
     margin-top: 160px;
   }
 
+  .tulip-decor img {
+    width: clamp(90px, 10vw, 160px);
+  }
+
   }
   </style>
 </head>
@@ -1087,6 +1113,10 @@
       </h1>
     </div>
   </section>
+
+  <div class="tulip-decor tulip-decor--left" aria-hidden="true">
+    <img src="tulip.png" alt="" loading="lazy" decoding="async">
+  </div>
 
   <!-- Save the Date -->
   <section class="save-date-section section--sage" id="save-date">
@@ -1116,18 +1146,27 @@
 
     <div class="venue-photo-wrap">
       <picture>
-        <source srcset="place1.webp" type="image/webp">
-        <img src="place1.jpg" alt="" loading="lazy" decoding="async" />
+        <source srcset="marco_polo_2.webp" type="image/webp">
+        <img src="marco_polo_2.jpg" alt="" loading="lazy" decoding="async" />
       </picture>
       <picture>
-        <source srcset="place2.webp" type="image/webp">
-        <img src="place2.jpg" alt="" loading="lazy" decoding="async" />
+        <source srcset="marco_polo.webp" type="image/webp">
+        <img src="marco_polo.jpg" alt="" loading="lazy" decoding="async" />
       </picture>
     </div>
 
-    <p class="venue-address animate-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#720013" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Eco park by Marco Polo</p>
+    <p class="venue-address animate-on-scroll">
+      <a href="https://yandex.ru/maps/-/CPGom0LV" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#720013" style="vertical-align:middle;margin-right:5px;margin-bottom:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Eco park Marco Polo<br>
+        <span style="margin-left:25px;">Сити-Чесс, 24, Элиста</span>
+      </a>
+    </p>
 
   </section>
+
+  <div class="tulip-decor tulip-decor--right" aria-hidden="true">
+    <img src="tulip_2.png" alt="" loading="lazy" decoding="async">
+  </div>
 
   <!-- Программа -->
   <section class="schedule-section section--sage" id="schedule">
