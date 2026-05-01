@@ -709,6 +709,7 @@
     }
 
     .desktop-br { display: none; }
+    .invitation-wrap .tulip-decor--left { display: none; }
 
     @media (prefers-reduced-motion: reduce) {
       .calendar-heart-ripple--1,
@@ -903,6 +904,41 @@
       margin-left: auto;
       margin-right: auto;
       overflow: hidden;
+      border-radius: 0 0 80px 80px;
+    }
+    .save-date-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem 4rem;
+      gap: 2rem;
+    }
+    .invitation-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2rem;
+      margin: 0;
+      padding: 2rem 0;
+      max-width: none;
+    }
+    .invitation-wrap .tulip-decor--left {
+      display: block;
+      flex-shrink: 0;
+      height: auto;
+      overflow: visible;
+    }
+    .invitation-wrap .tulip-decor--left img {
+      position: static;
+      width: clamp(90px, 10vw, 140px);
+    }
+    .invitation-text {
+      margin-top: 0;
+      padding: 0;
+      text-align: left;
     }
     .hero-content {
       max-width: 900px;
@@ -924,6 +960,7 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0;
     border-radius: 10%;
   }
   .photo-strip-text {
@@ -941,6 +978,9 @@
     max-width: 650px;
     margin: 0 auto;
   }
+  .countdown-bottom-photo {
+    border-radius: 10%;
+  }
   .countdown-number {
     font-size: 4rem;
   }
@@ -949,11 +989,24 @@
   }
 
   /* ── Save the Date ─────────────────────────────────────────── */
+  .calendar-weekday,
+  .calendar-day,
+  .save-date-heading {
+    color: #fff;
+  }
+
   .save-date-section {
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    margin: 0;
     border-radius: 40px;
+    background: #95a05d;
+    box-shadow: none;
+  }
+
+  /* ── Tulip right (позиция рядом с заголовком программы) ───── */
+  .tulip-decor--right img {
+    right: max(15px, calc((100vw - 1040px) / 2 + 72px));
+    bottom: -135px;
   }
 
   /* ── Timeline (горизонтальный) ─────────────────────────────── */
@@ -1030,6 +1083,7 @@
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0;
   }
   .venue-photo-wrap picture {
     width: 65%;
@@ -1074,6 +1128,9 @@
   .tulip-decor img {
     width: clamp(90px, 10vw, 160px);
   }
+  .tulip-decor--right img {
+    width: clamp(45px, 5vw, 80px);
+  }
 
   }
   </style>
@@ -1101,28 +1158,31 @@
     </div>
   </section>
 
-  <div class="invitation-text animate-on-scroll">
-    <p>Этим летом состоится важное<br>событие — наша свадьба.</p>
-    <p>Мы приглашаем вас разделить с&nbsp;нами этот радостный день, в&nbsp;который<br><span style="font-style:italic;font-size:1.25em;">мы станем семьёй!</span></p>
-  </div>
-
-  <div class="tulip-decor tulip-decor--left" aria-hidden="true">
-    <img src="tulip.png" alt="" loading="lazy" decoding="async">
-  </div>
-
-  <!-- Save the Date -->
-  <section class="save-date-section section--sage" id="save-date">
-    <h2 class="save-date-heading animate-on-scroll">ИЮНЬ</h2>
-    <div class="calendar-wrap">
-      <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
+  <div class="save-date-grid">
+    <div class="invitation-wrap">
+      <div class="tulip-decor tulip-decor--left" aria-hidden="true">
+        <img src="tulip.png" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="invitation-text animate-on-scroll">
+        <p>Этим летом состоится важное<br>событие — наша свадьба.</p>
+        <p>Мы приглашаем вас разделить с&nbsp;нами<br class="desktop-br">этот радостный день, в&nbsp;который<br><span style="font-style:italic;font-size:1.25em;">мы станем семьёй!</span></p>
+      </div>
     </div>
-  </section>
+
+    <!-- Save the Date -->
+    <section class="save-date-section section--sage" id="save-date">
+      <h2 class="save-date-heading animate-on-scroll">ИЮНЬ</h2>
+      <div class="calendar-wrap">
+        <div class="calendar-grid animate-on-scroll" id="calendar-grid"></div>
+      </div>
+    </section>
+  </div>
 
   <!-- Фото полоса -->
   <div class="photo-strip">
     <picture>
-      <source media="(min-width: 1024px)" srcset="photo6.webp" type="image/webp">
-      <source media="(min-width: 1024px)" srcset="photo6.png">
+      <source media="(min-width: 1024px)" srcset="photo6-new.webp" type="image/webp">
+      <source media="(min-width: 1024px)" srcset="photo6-new.jpg">
       <source srcset="photo2-strip-mobile.webp" type="image/webp">
       <img src="photo2-strip-mobile.jpg" alt="" loading="lazy" decoding="async" />
     </picture>
@@ -1220,6 +1280,7 @@
     <picture>
       <source media="(min-width: 1024px)" srcset="photo5-desktop.webp" type="image/webp">
       <source media="(min-width: 1024px)" srcset="photo5-desktop.jpg">
+      <source srcset="photo4-mobile.webp" type="image/webp">
       <img class="finale-photo" src="photo4-mobile.jpg" alt="" loading="lazy" decoding="async" />
     </picture>
     <p class="finale-text animate-on-scroll">ВСЕХ ЖДЁМ</p>
