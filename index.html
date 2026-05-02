@@ -488,6 +488,7 @@
     }
     .details-section .section-title { color: var(--text); }
     .details-section .section-subtitle { color: var(--text-muted); }
+
     .details-section .sage-line { background: var(--sage); opacity: 0.3; margin-bottom: 1rem; }
 
     .rsvp-intro {
@@ -711,6 +712,7 @@
     }
 
     .invitation-wrap .tulip-decor--left { display: none; }
+    .tulip-decor--mobile-calendar { display: block; }
 
     @media (prefers-reduced-motion: reduce) {
       .calendar-heart-ripple--1,
@@ -926,6 +928,7 @@
       padding: 2rem 0;
       max-width: none;
     }
+    .tulip-decor--mobile-calendar { display: none; }
     .invitation-wrap .tulip-decor--left {
       display: block;
       flex-shrink: 0;
@@ -1167,6 +1170,9 @@
         <p>Этим летом состоится важное<br>событие — наша свадьба.</p>
         <p>Мы приглашаем вас разделить с&nbsp;нами<br>этот радостный день, в&nbsp;который<br><span style="font-style:italic;font-size:1.25em;">мы станем семьёй!</span></p>
       </div>
+    </div>
+    <div class="tulip-decor tulip-decor--left tulip-decor--mobile-calendar" aria-hidden="true">
+      <img src="tulip.png" alt="" loading="lazy" decoding="async">
     </div>
 
     <!-- Save the Date -->
