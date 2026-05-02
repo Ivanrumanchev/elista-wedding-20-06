@@ -364,9 +364,35 @@
     }
 
 
+    .venue-title-row, .details-title-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem; }
+    .venue-title-row .section-title, .details-title-row .section-title { margin-bottom: 0; }
+    /* ── Декор пагоды / сайгака ──────────────────────────────────── */
+    .pagoda-decor, .saigak-decor {
+      position: relative;
+      height: 0;
+      overflow: visible;
+      z-index: 20;
+      pointer-events: none;
+    }
+    .pagoda-decor img {
+      position: absolute;
+      right: 10px;
+      bottom: -20px;
+      height: 5rem;
+      width: auto;
+      object-fit: contain;
+    }
+    .saigak-decor img {
+      position: absolute;
+      left: 40px;
+      bottom: -65px;
+      height: 5rem;
+      width: auto;
+      object-fit: contain;
+    }
     /* ── Место проведения ─────────────────────────────────────────── */
     .venue-section {
-      padding: 0px clamp(1.5rem, 8vw, 6rem) calc(var(--section-pad) - 5px);
+      padding: 0px clamp(1.5rem, 8vw, 6rem) 0;
       margin-top: -30px;
       background: var(--white);
       text-align: center;
@@ -475,7 +501,7 @@
 
     /* ── Details ──────────────────────────────────────────────────── */
     .details-section {
-      padding: 0 clamp(1.5rem, 8vw, 6rem);
+      padding: 10px clamp(1.5rem, 8vw, 6rem) 0;
       background: var(--white);
       text-align: center;
       position: relative;
@@ -732,6 +758,7 @@
       background: #fff;
       margin-top: -30px;
     }
+    .photo-strip--7 { margin-top: 0; padding: 12px 0; }
 
     .photo-strip::before {
       content: '';
@@ -1135,6 +1162,34 @@
     width: clamp(45px, 5vw, 80px);
   }
 
+  /* ── Pagoda / Saigak decor ──────────────────────────────────── */
+  .pagoda-decor {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pagoda-decor img {
+    right: 30px;
+    bottom: -133px;
+    height: 8.5rem;
+  }
+  .saigak-decor {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .saigak-decor img {
+    left: 65px;
+    bottom: -120px;
+    height: 7.5rem;
+  }
+
+  /* ── Photo strip 7 ──────────────────────────────────────────── */
+  .photo-strip--7 { border-radius: 0; }
+  .photo-strip--7 picture {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+
   }
   </style>
 </head>
@@ -1148,11 +1203,11 @@
         <source media="(min-width: 1024px)" srcset="photo3-desktop.webp" type="image/webp">
         <source media="(min-width: 1024px)" srcset="photo3-desktop.jpg">
         <source srcset="photo1-hero-mobile.webp" type="image/webp">
-        <img class="hero-photo" src="photo1-hero-mobile.png" alt="" fetchpriority="high" />
+        <img class="hero-photo" src="photo1-hero-mobile.jpg" alt="" fetchpriority="high" />
       </picture>
     </div>
     <div class="hero-content">
-      <p class="hero-eyebrow animate-on-scroll">20/06</p>
+      <p class="hero-eyebrow animate-on-scroll">20 июня</p>
       <h1 class="hero-names animate-on-scroll">
         <span data-groom>Иван</span>
         <span class="hero-ampersand">&amp;</span>
@@ -1195,8 +1250,16 @@
   </div>
 
   <!-- Место -->
+  <div class="pagoda-decor" aria-hidden="true">
+    <picture>
+      <source srcset="pagoda-transparent.webp" type="image/webp">
+      <img src="pagoda-transparent.png" alt="" loading="lazy" decoding="async">
+    </picture>
+  </div>
   <section class="venue-section" id="venue">
-    <h2 class="section-title animate-on-scroll">Место проведения</h2>
+    <div class="venue-title-row animate-on-scroll">
+      <h2 class="section-title">Место проведения</h2>
+    </div>
 
     <div class="venue-photo-wrap">
       <picture>
@@ -1217,6 +1280,14 @@
     </p>
 
   </section>
+
+  <!-- Фото полоса 7 -->
+  <div class="photo-strip photo-strip--7">
+    <picture>
+      <source srcset="photo7-strip.webp" type="image/webp">
+      <img src="photo7-strip.jpg" alt="" loading="lazy" decoding="async">
+    </picture>
+  </div>
 
   <div class="tulip-decor tulip-decor--right" aria-hidden="true">
     <img src="tulip_2.png" alt="" loading="lazy" decoding="async">
@@ -1242,7 +1313,7 @@
     <img class="countdown-bottom-photo" src="photo_3.jpg" alt="" loading="lazy" decoding="async" />
   </picture>
   <section class="countdown-section" id="countdown">
-    <div class="countdown-grid animate-on-scroll">
+    <div class="countdown-grid">
       <div class="countdown-item">
         <span class="countdown-number" id="countdown-days">00</span>
         <span class="countdown-label" id="countdown-days-label">дней</span>
@@ -1267,9 +1338,29 @@
 
   </div><!-- /countdown-wrapper -->
 
+  <script>
+    (function () {
+      var d = new Date('2026-06-20T17:00:00').getTime() - Date.now();
+      if (d <= 0) return;
+      var pad = function (n) { return String(n).padStart(2, '0'); };
+      document.getElementById('countdown-days').textContent    = pad(Math.floor(d / 86400000));
+      document.getElementById('countdown-hours').textContent   = pad(Math.floor(d % 86400000 / 3600000));
+      document.getElementById('countdown-minutes').textContent = pad(Math.floor(d % 3600000  / 60000));
+      document.getElementById('countdown-seconds').textContent = pad(Math.floor(d % 60000    / 1000));
+    })();
+  </script>
+
   <!-- Детали -->
+  <div class="saigak-decor" aria-hidden="true">
+    <picture>
+      <source srcset="saigak-transparent.webp" type="image/webp">
+      <img src="saigak-transparent.png" alt="" loading="lazy" decoding="async">
+    </picture>
+  </div>
   <section class="details-section section--sage" id="details">
-    <h2 class="section-title animate-on-scroll">Детали</h2>
+    <div class="details-title-row animate-on-scroll">
+      <h2 class="section-title">Детали</h2>
+    </div>
     <div class="sage-line animate-on-scroll"></div>
     <p class="rsvp-intro animate-on-scroll">
       Пожалуйста, воздержитесь от&nbsp;покупки цветов, поскольку после&nbsp;свадьбы мы уезжаем и долго наслаждаться их красотой не сможем.
