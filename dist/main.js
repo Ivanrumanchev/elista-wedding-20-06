@@ -6,8 +6,8 @@ const WEDDING_CONFIG = {
     groom: 'Иван',
     date: new Date('2026-06-20T17:00:00'),
     venue: {
-        name: 'Eco park Marco Polo',
-        address: 'Сити-Чесс, 24, город Элиста',
+        name: 'Eco park Марко Поло',
+        address: 'Сити-Чесс, город Элиста',
         mapUrl: 'https://yandex.ru/maps/-/CPGom0LV',
     },
     schedule: [
